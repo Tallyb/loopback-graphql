@@ -3,12 +3,10 @@
 import {apolloExpress, graphiqlExpress } from 'apollo-server';
 import {makeExecutableSchema} from 'graphql-tools';
 
+import {json} from 'body-parser';
+import modelSchema from './schema';
+import modelResolvers from './resolvers';
 import _ from 'lodash';
-var gqlTools = require('graphql-tools');
-var bodyParser = require('body-parser');
-
-var modelSchema = require('./schema.js');
-var modelResolvers = require('./resolvers.js');
 
 export function graphql(app, noGraphiql) {
     //Need to filter only the public models
@@ -36,7 +34,7 @@ export function graphql(app, noGraphiql) {
     });
 
     let router = app.loopback.Router();
-    router.use('/graphql', bodyParser.json(), apolloExpress({ schema: schema }));
+    router.use('/graphql', json(), apolloExpress({ schema: schema }));
     if (!noGraphiql) {
         router.use('/graphiql', graphiqlExpress({
             endpointURL: '/graphql'
