@@ -1,8 +1,6 @@
 {
   "dependencies": {
-    "graphql": "github:nitintutlani/typed-graphql#ffe7e46e2249cc8f3824a5d15a44938f4354afe9"
   },
   "globalDependencies": {
-    "multer": "registry:dt/multer#0.0.0+20160726135055"
   }
 }
