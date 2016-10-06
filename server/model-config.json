@@ -33,7 +33,8 @@
     "public": false
   },
   "Note": {
-    "dataSource": "db"
+    "dataSource": "db",
+    "public": true 
   },
   "Author": {
     "dataSource": "db",
