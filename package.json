@@ -11,6 +11,8 @@
     "lint": "npm run eslint",
     "pretest": "npm run eslint",
     "test": "npm run mocha",
+    "server": "cd loopback && node .",
+    "update-package": "cd loopback && npm install ../",
     "mocha": "istanbul cover --root . --include-all-sources --dir ./coverage --report text --report text-summary --report lcov --print none  _mocha -- test/mocha/**/*.test.js --require test/mocha/helpers/globals.js --reporter spec --timeout 10000",
     "mocha:watch": "mocha test/**/*.js -R nyan -w --timeout 10000"
   },
@@ -45,6 +47,7 @@
     "chai": "^3.5.0",
     "eslint": "^2.13.1",
     "eslint-plugin-nodeca": "^1.0.3",
+    "istanbul": "^0.4.5",
     "mocha": "^3.1.0",
     "nsp": "^2.1.0",
     "sinon": "^1.17.6"
