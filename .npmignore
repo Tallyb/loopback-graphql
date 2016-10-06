@@ -1,4 +1,5 @@
-loopback
+server
+client
 test
 coverage
 resources
