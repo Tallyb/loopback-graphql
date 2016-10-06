@@ -1,0 +1,13 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "parkee": {
+    "host": "localhost",
+    "port": 27017,
+    "database": "Parkee",
+    "name": "parkee",
+    "connector": "mongodb"
+  }
+}

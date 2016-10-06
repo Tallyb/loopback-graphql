@@ -9,7 +9,6 @@ You can use the Apollo Server and Client.
 
 ```sh
 npm install apollo-loopback
-typings i -SG dt~express dt~express-serve-static-core dt~serve-static dt~mime dt~boom dt~cookies
 ```
 In a boot scripts add the following:
 ```

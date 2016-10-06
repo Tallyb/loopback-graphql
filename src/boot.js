@@ -1,14 +1,14 @@
 'use strict';
 
-import {apolloExpress, graphiqlExpress } from 'apollo-server';
-import {makeExecutableSchema} from 'graphql-tools';
+var apollo = require('apollo-server');
+var gqlTools = require('graphql-tools');
+var bodyParser = require('body-parser');
 
-import {json} from 'body-parser';
-import modelSchema from './schema';
-import modelResolvers from './resolvers';
-import _ from 'lodash';
+var _ = require('lodash');
+var modelSchema = require('./schema.js');
+var modelResolvers = require('./resolvers.js');
 
-export function graphql(app, noGraphiql) {
+module.exports = function graphql(app, noGraphiql) {
     //Need to filter only the public models
     const models = _.filter(app.models(), m => {
         return true;
@@ -25,7 +25,7 @@ export function graphql(app, noGraphiql) {
     `];
 
     let resolvers = modelResolvers.generateResolvers(models);
-    let schema = makeExecutableSchema({
+    let schema = gqlTools.makeExecutableSchema({
         typeDefs,
         resolvers,
         resolverValidationOptions: {
@@ -34,9 +34,9 @@ export function graphql(app, noGraphiql) {
     });
 
     let router = app.loopback.Router();
-    router.use('/graphql', json(), apolloExpress({ schema: schema }));
+    router.use('/graphql', bodyParser.json(), apollo.apolloExpress({ schema: schema }));
     if (!noGraphiql) {
-        router.use('/graphiql', graphiqlExpress({
+        router.use('/graphiql', apollo.graphiqlExpress({
             endpointURL: '/graphql'
         }));
     }

@@ -1,36 +1,37 @@
 'use strict';
-
-var _ = require('lodash');
-var gqlLang = require('graphql/language');
-
+const lodash_1 = require('lodash');
+const index_js_1 = require('graphql/language/index.js');
 const typeResolvers = {
     Date: {
         __parseValue(value) {
-            return new Date(value); // value from the client
+            return new Date(value);
         },
         __serialize(value) {
-            return value.getTime(); // value sent to the client
+            return value.getTime();
         },
         __parseLiteral(ast) {
-            if (ast.kind === gqlLang.Kind.INT) {
-                return parseInt(ast.value, 10); // ast value is always in string format
+            if (ast.kind === index_js_1.Kind.INT) {
+                return parseInt(ast.value, 10);
             }
             return null;
         }
     }
 };
-
 function generateRootResolvers(models) {
     let resolvers = {};
-    _.forEach(models, m => {
+    lodash_1.default.forEach(models, m => {
         resolvers[m.pluralModelName] = (obj, args, context) => {
-            return m.find({skip: args.after, limit: args.first}).then(res => {
+            console.log('CONTEXT', context);
+            console.log('ARGS', args);
+            return m.find(args).then(res => {
                 return res;
             });
         };
     });
-    _.forEach(models, m => {
+    lodash_1.default.forEach(models, m => {
         resolvers[m.modelName] = (obj, args, context) => {
+            console.log('CONTEXT', context);
+            console.log('ARGS', args);
             return m.findOne(args).then(res => {
                 return res;
             });
@@ -38,19 +39,18 @@ function generateRootResolvers(models) {
     });
     return { Query: resolvers };
 }
-
 function generateModelResolvers(models) {
     let resolvers = {};
-    _.forEach(models, m => {
+    lodash_1.default.forEach(models, m => {
         resolvers[m.modelName] = (obj, args, context) => {
             return m.findById(obj.id);
         };
         let resolver = {};
-        _.forEach(m.relations, r => {
+        lodash_1.default.forEach(m.relations, r => {
             resolver[r.name] = (obj, args, context) => {
                 let query = {};
                 query[r.keyTo] = obj[r.keyFrom];
-                return r.modelTo.find({where: query, skip: args.after, limit: args.first}).then(res => {
+                return r.modelTo.find({ where: query }).then(res => {
                     return res;
                 });
             };
@@ -59,11 +59,12 @@ function generateModelResolvers(models) {
     });
     return resolvers;
 }
-
 function generateResolvers(models) {
-    return _.merge(typeResolvers, generateRootResolvers(models), generateModelResolvers(models));
+    return lodash_1.default.merge(typeResolvers, generateRootResolvers(models), generateModelResolvers(models));
 }
-
-module.exports = {
+let modelResolvers = {
     generateResolvers
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = modelResolvers;
+//# sourceMappingURL=resolvers.js.map

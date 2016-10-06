@@ -1,0 +1,33 @@
+{
+  "name": "Request",
+  "plural": "Requests",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "required": true
+    },
+    "start": {
+      "type": "date",
+      "required": true
+    },
+    "end": {
+      "type": "date",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "parking": {
+      "type": "belongsTo",
+      "model": "Parking",
+      "foreignKey": "parkingId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
