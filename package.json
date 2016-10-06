@@ -40,16 +40,11 @@
     "lodash": "^4.16.3"
   },
   "devDependencies": {
+    "apollo-client": "^0.4.20",
     "babel-eslint": "^6.1.2",
     "chai": "^3.5.0",
     "eslint": "^2.13.1",
-    "eslint-config-loopback": "^4.0.0",
     "eslint-plugin-nodeca": "^1.0.3",
-    "loopback": "^2.22.0",
-    "loopback-boot": "^2.6.5",
-    "loopback-component-explorer": "^2.4.0",
-    "loopback-connector-mongodb": "^1.15.2",
-    "loopback-datasource-juggler": "^2.39.0",
     "mocha": "^3.1.0",
     "nsp": "^2.1.0",
     "sinon": "^1.17.6"

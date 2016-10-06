@@ -8,7 +8,7 @@ You can use the Apollo Server and Client.
 ## Getting started
 
 ```sh
-npm install apollo-loopback
+npm install loopback-graphql
 ```
 In a boot scripts add the following:
 ```

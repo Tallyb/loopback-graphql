@@ -1,0 +1,22 @@
+{
+  "name": "Note",
+  "properties": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "authors": {
+      "type": "hasOne",
+      "model": "Author",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
