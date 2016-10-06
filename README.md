@@ -13,6 +13,7 @@ npm install apollo-loopback
 In a boot scripts add the following:
 ```
 module.exports = function (app) {
-    require('../graphql/boot.js')(app);
+    require('loopback-graphql').boot(app);
 };
+
 ```

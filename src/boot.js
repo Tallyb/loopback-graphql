@@ -5,10 +5,10 @@ var gqlTools = require('graphql-tools');
 var bodyParser = require('body-parser');
 
 var _ = require('lodash');
-var modelSchema = require('./schema.js');
+var query = require('./query.js');
 var modelResolvers = require('./resolvers.js');
 
-module.exports = function graphql(app, noGraphiql) {
+function boot (app, noGraphiql) {
     //Need to filter only the public models
     const models = _.filter(app.models(), m => {
         return true;
@@ -16,9 +16,9 @@ module.exports = function graphql(app, noGraphiql) {
 
     let typeDefs = [`
     scalar Date
-    ${modelSchema.generateEnums(models)}
-    ${modelSchema.generateTypeDefs(models)}
-    type Query { ${modelSchema.generateQueries(models)} }
+    ${query.generateEnums(models)}
+    ${query.generateTypeDefs(models)}
+    type Query { ${query.generateQueries(models)} }
     schema {
       query: Query
     }
@@ -41,4 +41,8 @@ module.exports = function graphql(app, noGraphiql) {
         }));
     }
     app.use(router);
+}
+
+module.exports = {
+    boot
 };

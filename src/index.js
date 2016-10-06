@@ -1,5 +1,5 @@
-declare function Date(name: string);
-declare function parseInt(name: string);
+'use strict';
 
-
-export * from './boot'
+module.exports = {
+    boot: require('./boot.js').boot
+};

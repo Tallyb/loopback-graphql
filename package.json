@@ -2,22 +2,17 @@
   "name": "loopback-graphql",
   "version": "0.0.1",
   "description": "Add Apollo Server or GraphQL queries on your Loopback server",
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "pretest": "npm run compile",
-    "test": "npm run testonly --",
-    "posttest": "npm run lint",
-    "lint": "eslint ./src/**/*.es",
-    "mocha:watch:testdev": "npm run import && env $(cat ./env/${ENV-testdev}.env | xargs) mocha test/{env-all,env-testdev}/**/*.spec.js -R nyan -w --timeout 10000",
-    "mocha:watch": "npm run import && env $(cat ./env/${ENV-testprod}.env | xargs) mocha test/{env-all,env-${ENV-testprod}}/**/*.spec.js -R nyan -w --timeout 10000",
-    "mocha:debug": "npm run import && env $(cat ./env/${ENV-testprod}.env | xargs) mocha test/{env-all,env-${ENV-testprod}}/**/*.spec.js --reporter spec --timeout 10000 --debug-brk=5858",
-    "nodemon": "nodemon",
-    "testonly": "mocha --compilers js:babel-core/register --reporter spec --full-trace ./dist/test/tests.js",
-    "coverage": "babel-node ./node_modules/istanbul/lib/cli.js cover _mocha -- --full-trace ./dist/test/tests.js",
-    "postcoverage": "remap-istanbul --input coverage/coverage.raw.json --type lcovonly --output coverage/lcov.info"
+    "eslint": "eslint .",
+    "lint": "npm run eslint",
+    "pretest": "npm run eslint",
+    "test": "npm run mocha",
+    "mocha": "istanbul cover --root . --include-all-sources --dir ./coverage --report text --report text-summary --report lcov --print none  _mocha -- test/mocha/**/*.test.js --require test/mocha/helpers/globals.js --reporter spec --timeout 10000",
+    "mocha:watch": "mocha test/**/*.js -R nyan -w --timeout 10000"  
   },
   "repository": {
     "type": "git",
