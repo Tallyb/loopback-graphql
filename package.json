@@ -14,7 +14,9 @@
     "server": "cd loopback && node .",
     "update-package": "cd loopback && npm install ../",
     "mocha": "istanbul cover --root . --include-all-sources --dir ./coverage --report text --report text-summary --report lcov --print none  _mocha -- test/mocha/**/*.test.js --require test/mocha/helpers/globals.js --reporter spec --timeout 10000",
-    "mocha:watch": "mocha test/**/*.js -R nyan -w --timeout 10000"
+    "mocha:watch": "mocha test/**/*.js -R nyan -w --timeout 10000",
+    "publish:patch": "npm-bump patch && npm publish",
+    "publish:minor": "npm-bump minor && npm publish"
   },
   "repository": {
     "type": "git",
