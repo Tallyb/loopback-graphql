@@ -11,10 +11,10 @@
     "lint": "npm run eslint",
     "pretest": "npm run eslint",
     "test": "npm run mocha",
-    "server": "node .",
+    "start": "node .",
     "nodemon": "nodemon server/server.js",
-    "mocha": "istanbul cover --root . --include-all-sources --dir ./coverage --report text --report text-summary --report lcov --print none  _mocha -- test/mocha/**/*.test.js --require test/mocha/helpers/globals.js --reporter spec --timeout 10000",
-    "mocha:watch": "mocha test/**/*.js -R nyan -w --timeout 10000",
+    "mocha": "istanbul cover --root . --include-all-sources --dir ./coverage --report text --report text-summary --report lcov --print none  _mocha -- test/**/*.spec.js --require test/test.helpers.js --reporter spec --timeout 10000",
+    "mocha:watch": "mocha test/**/*spec.js -R nyan -w --timeout 10000",
     "publish:patch": "npm-bump patch && npm publish",
     "publish:minor": "npm-bump minor && npm publish"
   },
