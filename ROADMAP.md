@@ -7,15 +7,18 @@ This document contains a rough outline of a roadmap and a few designs for future
 
 ### Completed
 
-* Query models
+* Query models - single
+* Query models - multiple  
+* Mutations -  Save models
 
 ### Current
 
-* Tests
+* E2E Tests
+* Unit tests
+* Mutations - delete
 
 ### Next up
 
-* Parameters for entity results
-* Mutations
+* Query parameters
 * Security
 
