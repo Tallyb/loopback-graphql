@@ -1,5 +1,3 @@
 'use strict';
 
-module.exports = {
-    boot: require('./lib/boot.js').boot
-};
+module.exports = require('./lib/boot.js');

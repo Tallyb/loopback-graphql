@@ -1,4 +1,4 @@
-# GraphQL Server for Loopback
+# GraphQL Server for Loopback (Apollo Server)
 
 Combine the powers of [ApolloStack](http://www.apollostack.com/) GraphQL with the backend of Loopback.
 <br>
@@ -15,13 +15,15 @@ Use the Apollo [clients](http://dev.apollodata.com/) to access your data.
 ```sh
 npm install loopback-graphql
 ```
-In a loopback [boot script](http://loopback.io/doc/en/lb2/Defining-boot-scripts.html) (e.g. `graphql.js') add the following:
+Add the loopback-graphql component to the `server/component-config.json`: 
+
 ```
-module.exports = function (app) {
-    require('loopback-graphql').boot(app);
-};
+"loopback-graphql": {
+    "path": "/graphql",
+    "graphiqlPath":"/graphiql"
+  }
 ```
 
-You can see the loopback explorer on: `http://localhost:3000/explorer`
+Requests will be posted to `path` path. (Default: `/graphql`);
 
-You can see the graphiql on `http://localhost:3000/graphiql`
+Graphiql is available on `graphiqlPath` path. (Default: `/graphiql`);
