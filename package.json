@@ -9,6 +9,7 @@
   "scripts": {
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "release": "standard-version",
+    "publish": "git push --follow-tags origin master && npm publish",
     "eslint": "eslint .",
     "lint": "npm run eslint",
     "pretest": "npm run eslint",
