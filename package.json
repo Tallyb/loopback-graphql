@@ -1,12 +1,14 @@
 {
   "name": "loopback-graphql",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Add Apollo Server or GraphQL queries on your Loopback server",
   "main": "src/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "release": "standard-version",
     "eslint": "eslint .",
     "lint": "npm run eslint",
     "pretest": "npm run eslint",
@@ -50,6 +52,7 @@
     "chai": "^3.5.0",
     "chai-http": "^3.0.0",
     "compression": "^1.0.3",
+    "conventional-changelog-cli": "^1.2.0",
     "cors": "^2.5.2",
     "cpy-cli": "^1.0.1",
     "eslint": "^2.13.1",
@@ -65,6 +68,7 @@
     "nsp": "^2.1.0",
     "serve-favicon": "^2.0.1",
     "sinon": "^1.17.6",
+    "standard-version": "^3.0.0",
     "strong-error-handler": "^1.0.1"
   }
 }
