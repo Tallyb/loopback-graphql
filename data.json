@@ -5,8 +5,8 @@
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Note": 1,
-    "Author": 2
+    "Note": 6,
+    "Author": 6
   },
   "models": {
     "User": {},
@@ -14,9 +14,19 @@
     "ACL": {},
     "RoleMapping": {},
     "Role": {},
-    "Note": {},
+    "Note": {
+      "1": "{\"title\":\"1st note\",\"content\":\"Hope it will work\",\"id\":1}",
+      "2": "{\"title\":\"Who is Afraid\",\"content\":\"Hope it will work\",\"authorId\":3,\"id\":2}",
+      "3": "{\"title\":\"A room with a View\",\"content\":\"Hope it will work\",\"authorId\":3,\"id\":3}",
+      "4": "{\"title\":\"2nd  note\",\"content\":\"Hope it will work\",\"authorId\":4,\"id\":4}",
+      "5": "{\"title\":\"Of Mice and Men\",\"content\":\"A long one\",\"authorId\":4,\"id\":5}"
+    },
     "Author": {
-      "1": "{\"first_name\":\"John\",\"last_name\":\"Steinback\",\"birth_date\":\"2016-10-06T00:00:00.000Z\",\"id\":1}"
+      "1": "{\"first_name\":\"Ernest\",\"last_name\":\"Hemingway\",\"birth_date\":\"1960-02-29T22:00:00.000Z\",\"id\":1}",
+      "2": "{\"first_name\":\"Mark\",\"last_name\":\"Twain\",\"birth_date\":\"2016-10-08T18:22:58.307Z\",\"id\":2}",
+      "3": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"1960-02-29T22:00:00.000Z\",\"id\":3}",
+      "4": "{\"first_name\":\"John\",\"last_name\":\"Steinback\",\"Genre\":\"HUMOR\",\"birth_date\":\"2016-10-12T00:00:00.000Z\",\"id\":4}",
+      "5": "{\"first_name\":\"Tony\",\"last_name\":\"Morrison\",\"birth_date\":\"1943-12-31T22:00:00.000Z\",\"id\":5}"
     }
   }
 }

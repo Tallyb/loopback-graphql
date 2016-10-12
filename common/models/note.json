@@ -11,8 +11,8 @@
   },
   "validations": [],
   "relations": {
-    "authors": {
-      "type": "hasOne",
+    "author": {
+      "type": "belongsTo",
       "model": "Author",
       "foreignKey": ""
     }
