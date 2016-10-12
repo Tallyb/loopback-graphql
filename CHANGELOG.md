@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://github.com/tallyb/loopback-graphql/compare/v0.2.1...v0.3.0) (2016-10-12)
+
+
+### Bug Fixes
+
+* **app:** Fix relationships errors ([29716d1](https://github.com/tallyb/loopback-graphql/commit/29716d1))
+
+
+### Features
+
+* **app:** Add Delete Mutations ([e57dd20](https://github.com/tallyb/loopback-graphql/commit/e57dd20))
+* **app:** Publish scripts ([caa66bf](https://github.com/tallyb/loopback-graphql/commit/caa66bf))
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://github.com/tallyb/loopback-graphql/compare/0.1.0...v0.2.1) (2016-10-11)
 
