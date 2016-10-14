@@ -18,5 +18,25 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "vote": {
+      "isStatic": false,
+      "accepts": [
+        {
+          "arg": "rank",
+          "type": "number",
+          "required": true,
+          "description": ""
+        }
+      ],
+      "returns": [],
+      "description": " vote  a note",
+      "http": [
+        {
+          "path": "vote",
+          "verb": "post"
+        }
+      ]
+    }
+  }
 }
