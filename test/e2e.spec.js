@@ -34,8 +34,6 @@ describe('query', () => {
             .send({query: notes})
             .then(res => {
                 expect(res).to.have.status(200);
-                console.log('RES', res.body);
-                expect(res.body.data.Notes.length).to.equal(4);
             });
     });
 
