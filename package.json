@@ -60,6 +60,7 @@
     "eslint": "^3.7.1",
     "eslint-plugin-nodeca": "^1.0.3",
     "ghooks": "^1.3.2",
+    "graphql-tag": "^0.1.14",
     "helmet": "^2.3.0",
     "istanbul": "^0.4.5",
     "loopback": "^2.22.0",
