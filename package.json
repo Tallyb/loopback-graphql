@@ -39,6 +39,7 @@
   "homepage": "https://github.com/tallyb/loopback-graphql#readme",
   "dependencies": {
     "apollo-server": "^0.3.2",
+    "body-parser": "^1.15.2",
     "graphql": "^0.7.0",
     "graphql-tools": "^0.7.2",
     "lodash": "^4.16.3"

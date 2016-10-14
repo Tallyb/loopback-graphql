@@ -1,3 +1,7 @@
+
+### Status
+[![Build Status](https://travis-ci.org/Tallyb/loopback-graphql.svg?branch=master)](https://travis-ci.org/Tallyb/loopback-graphql)
+
 # GraphQL Server for Loopback (Apollo Server)
 
 Combine the powers of [ApolloStack](http://www.apollostack.com/) GraphQL with the backend of Loopback.
