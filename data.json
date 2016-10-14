@@ -1,15 +1,17 @@
 {
   "ids": {
-    "User": 1,
+    "User": 2,
     "AccessToken": 1,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
     "Note": 6,
-    "Author": 9
+    "Author": 6
   },
   "models": {
-    "User": {},
+    "User": {
+      "1": "{\"username\":\"tally\",\"password\":\"$2a$10$b/Ok3FC3HYCbF2LlLXpk4OSsrz5EixJfkfJittHp8eEtPQvUJZiEa\",\"email\":\"tally@a.com\",\"id\":1}"
+    },
     "AccessToken": {},
     "ACL": {},
     "RoleMapping": {},
@@ -24,10 +26,7 @@
     "Author": {
       "3": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"1960-02-29T22:00:00.000Z\",\"id\":3}",
       "4": "{\"first_name\":\"John\",\"last_name\":\"Steinback\",\"Genre\":\"HUMOR\",\"birth_date\":\"2016-10-12T00:00:00.000Z\",\"id\":4}",
-      "5": "{\"first_name\":\"Tony\",\"last_name\":\"Morrison\",\"birth_date\":\"1943-12-31T22:00:00.000Z\",\"id\":5}",
-      "6": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2016-10-14T07:09:24.220Z\",\"id\":6}",
-      "7": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2016-10-14T07:10:43.634Z\",\"id\":7}",
-      "8": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2016-10-14T15:46:14.794Z\",\"id\":8}"
+      "5": "{\"first_name\":\"Tony\",\"last_name\":\"Morrison\",\"birth_date\":\"1943-12-31T22:00:00.000Z\",\"id\":5}"
     }
   }
 }
