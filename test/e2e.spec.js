@@ -1,22 +1,13 @@
 'use strict';
-//var testHelper = require('./test.helpers');
 var expect = require('chai').expect;
 var chai = require('chai')
     .use(require('chai-http'));
+var server = require('../server/server');
 
 var gql = require('graphql-tag');
 // var _ = require('lodash');
-//var server;
 
 describe('query', () => {
-    // before( function (done) {
-    //     return testHelper.getServer()
-    //         .then((ser) => {
-    //             server = ser;
-    //         }, (err) => {
-    //             console.log('error in starting server');
-    //         }).asCallback(done);
-    // });
 
     it('should execute a single query', () => {
         const notes = gql`
@@ -29,7 +20,7 @@ describe('query', () => {
         }
         `;
 
-        return chai.request('localhost:3000')
+        return chai.request(server)
             .post('/graphql')
             .send({query: notes})
             .then(res => {
@@ -57,7 +48,7 @@ describe('query', () => {
                 }
         };
 
-        return chai.request('localhost:3000')
+        return chai.request(server)
             .post('/graphql')
             .send({query: author, variables:values})
             .then(res => {
