@@ -14,3 +14,12 @@ script:
 
 # Allow Travis tests to run in containers.
 sudo: false
+
+deploy:
+  provider: npm
+  email: tally.barak@gmail.com
+  api_key: $NPM_API_KEY
+  on:
+    tags: true
+    all_branches: true
+    
