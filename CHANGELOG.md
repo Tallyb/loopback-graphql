@@ -1,3 +1,13 @@
+<a name="0.5.1"></a>
+## [0.5.1](https://github.com/tallyb/loopback-graphql/compare/v0.5.0...v0.5.1) (2016-10-15)
+
+
+### Bug Fixes
+
+* **resolvers:** Fix resolving nested models ([c80b02d](https://github.com/tallyb/loopback-graphql/commit/c80b02d))
+
+
+
 # Change Log
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
