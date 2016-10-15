@@ -47,5 +47,5 @@ The following actions are supported:
 * Save single object
 * Delete single object 
 
-## Projects
+## Roadmap
 [See here the Github project](https://github.com/Tallyb/loopback-graphql/projects/1)
