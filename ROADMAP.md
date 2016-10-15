@@ -5,17 +5,9 @@ This document contains a rough outline of a roadmap and a few designs for future
 
 ## Roadmap
 
-### Completed
-
-* Query models - single
-* Query models - multiple  
-* Mutations -  Save models
-
 ### Current
 
-* E2E Tests
 * Unit tests
-* Mutations - delete
 
 ### Next up
 

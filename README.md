@@ -32,9 +32,19 @@ Requests will be posted to `path` path. (Default: `/graphql`);
 
 Graphiql is available on `graphiqlPath` path. (Default: `/graphiql`);
 
-## Getting started
+## Usage
 
 Access the Graphiql interface to view your GraphQL model onthe Docs section. 
 Build the GraphQL queries and use them in your application.
+
+The following actions are supported: 
+###  Queries
+* Single entity by ID
+* Multiple entities with pagination (first, after)
+* Relationship between entities (belongs to, has many)
+
+### Mutations
+* Save single object
+* Delete single object 
 
 
