@@ -1,6 +1,6 @@
 {
   "name": "loopback-graphql",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Add Apollo Server or GraphQL queries on your Loopback server",
   "main": "src/index.js",
   "directories": {
