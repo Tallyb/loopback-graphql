@@ -5,8 +5,8 @@
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Note": 6,
-    "Author": 6
+    "Note": 7,
+    "Author": 9
   },
   "models": {
     "User": {
@@ -21,12 +21,15 @@
       "2": "{\"title\":\"Who is Afraid\",\"content\":\"Hope it will work\",\"authorId\":3,\"id\":2}",
       "3": "{\"title\":\"A room with a View\",\"content\":\"Hope it will work\",\"authorId\":3,\"id\":3}",
       "4": "{\"title\":\"The Bluest Eye\",\"content\":\"Hope it will work\",\"authorId\":5,\"id\":4}",
-      "5": "{\"title\":\"Of Mice and Men\",\"content\":\"Will go here\",\"authorId\":4,\"id\":5}"
+      "5": "{\"title\":\"Of Mice and Men\",\"content\":\"Will go here\",\"authorId\":4,\"id\":5}",
+      "6": "{\"title\":\"Love and Prejudice\",\"authorId\":8,\"id\":6}"
     },
     "Author": {
-      "3": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"1960-02-29T22:00:00.000Z\",\"id\":3}",
       "4": "{\"first_name\":\"John\",\"last_name\":\"Steinback\",\"Genre\":\"HUMOR\",\"birth_date\":\"2016-10-12T00:00:00.000Z\",\"id\":4}",
-      "5": "{\"first_name\":\"Tony\",\"last_name\":\"Morrison\",\"birth_date\":\"1943-12-31T22:00:00.000Z\",\"id\":5}"
+      "5": "{\"first_name\":\"Tony\",\"last_name\":\"Morrison\",\"birth_date\":\"1943-12-31T22:00:00.000Z\",\"id\":5}",
+      "6": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2016-10-15T08:54:15.889Z\",\"id\":6}",
+      "7": "{\"first_name\":\"Mark\",\"last_name\":\"Twain\",\"Genre\":\"HUMOR\",\"birth_date\":\"1789-10-15T00:00:00.000Z\",\"authorId\":4,\"id\":7}",
+      "8": "{\"first_name\":\"Jane\",\"last_name\":\"Austin\",\"Genre\":\"ROMANCE\",\"birth_date\":\"1883-10-15T00:00:00.000Z\",\"authorId\":4,\"id\":8}"
     }
   }
 }

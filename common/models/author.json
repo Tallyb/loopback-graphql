@@ -37,6 +37,11 @@
       "type": "hasMany",
       "model": "Note",
       "foreignKey": ""
+    },
+    "friends": {
+      "type": "hasMany",
+      "model": "Author",
+      "foreignKey": ""
     }
   },
   "acls": [],
