@@ -12,7 +12,6 @@ Define models in Loopback to be exposed as REST APIs and GraphQL queries and mut
 <br>
 Use the Apollo [clients](http://dev.apollodata.com/) to access your data. 
 
-*Mutations are not yet implemented
 
 ## Getting started
 
@@ -31,3 +30,10 @@ Add the loopback-graphql component to the `server/component-config.json`:
 Requests will be posted to `path` path. (Default: `/graphql`);
 
 Graphiql is available on `graphiqlPath` path. (Default: `/graphiql`);
+
+## Getting started
+
+Access the Graphiql interface to view your GraphQL model onthe Docs section. 
+Build the GraphQL queries and use them in your application.
+
+
