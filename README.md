@@ -12,6 +12,7 @@ Define models in Loopback to be exposed as REST APIs and GraphQL queries and mut
 <br>
 Use the Apollo [clients](http://dev.apollodata.com/) to access your data. 
 
+![Loopback Graphql](./resources/loopback-graphql.png?raw=true "LoopBack Apollo Architecture") 
 
 ## Getting started
 
