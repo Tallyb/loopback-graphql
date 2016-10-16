@@ -1,3 +1,13 @@
+<a name="0.5.3"></a>
+## [0.5.3](https://github.com/tallyb/loopback-graphql/compare/v0.5.2...v0.5.3) (2016-10-16)
+
+
+### Bug Fixes
+
+* **App:** Error on ReferencesMany relationship ([81f0821](https://github.com/tallyb/loopback-graphql/commit/81f0821))
+
+
+
 <a name="0.5.1"></a>
 ## [0.5.1](https://github.com/tallyb/loopback-graphql/compare/v0.5.0...0.5.1) (2016-10-15)
 
