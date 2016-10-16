@@ -15,6 +15,7 @@
     "test": "mocha --reporter spec --timeout 10000",
     "start": "node server/server.js",
     "nodemon": "nodemon server/server.js",
+    "debug": "nodemon server/server.js --debug-brk=5858",
     "mocha:coverage": "istanbul cover --root . --include-all-sources --dir ./coverage --report text --report text-summary --report lcov --print none  _mocha -- test/**/*.spec.js --reporter spec --timeout 10000",
     "test:watch": "mocha -R nyan -w --timeout 10000",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",

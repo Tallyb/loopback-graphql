@@ -39,9 +39,9 @@
       "foreignKey": ""
     },
     "friends": {
-      "type": "hasMany",
+      "type": "referencesMany",
       "model": "Author",
-      "foreignKey": ""
+      "foreignKey": "friendIds"
     }
   },
   "acls": [],
