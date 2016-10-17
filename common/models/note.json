@@ -6,7 +6,7 @@
       "required": true
     },
     "content": {
-      "type": "string"
+      "type": "Content"
     }
   },
   "validations": [],

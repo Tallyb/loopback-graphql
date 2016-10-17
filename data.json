@@ -17,11 +17,11 @@
     "RoleMapping": {},
     "Role": {},
     "Note": {
-      "1": "{\"title\":\"1st note\",\"content\":\"Hope it will work\",\"id\":1}",
-      "2": "{\"title\":\"Who is Afraid\",\"content\":\"Hope it will work\",\"authorId\":3,\"id\":2}",
-      "3": "{\"title\":\"A room with a View\",\"content\":\"Hope it will work\",\"authorId\":3,\"id\":3}",
-      "4": "{\"title\":\"The Bluest Eye\",\"content\":\"Hope it will work\",\"authorId\":5,\"id\":4}",
-      "5": "{\"title\":\"Of Mice and Men\",\"content\":\"Will go here\",\"authorId\":4,\"id\":5}",
+      "1": "{\"title\":\"1st note\",\"id\":1}",
+      "2": "{\"title\":\"Who is Afraid\",\"authorId\":3,\"id\":2}",
+      "3": "{\"title\":\"A room with a View\",\"authorId\":3,\"id\":3}",
+      "4": "{\"title\":\"The Bluest Eye\",\"authorId\":5,\"id\":4}",
+      "5": "{\"title\":\"Of Mice and Men\",\"authorId\":4,\"id\":5}",
       "6": "{\"title\":\"Love and Prejudice\",\"authorId\":8,\"id\":6}"
     },
     "Author": {

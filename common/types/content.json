@@ -1,0 +1,25 @@
+{
+    "name": "Content",
+    "plural": "Content",
+    "base": "Model",
+    "idInjection": false,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "title": {
+            "type": "string"
+        },
+        "body": {
+            "type": "string"
+        },
+        "footer": {
+            "type": "string"
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+
+}

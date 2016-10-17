@@ -4,6 +4,7 @@
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
+      "../common/types",
       "./models"
     ],
     "mixins": [
@@ -39,5 +40,9 @@
   "Author": {
     "dataSource": "db",
     "public": true
+  },
+  "Content": {
+    "dataSource": null,
+    "public": false
   }
 }
