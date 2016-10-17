@@ -83,6 +83,39 @@ describe('query', () => {
             });
     });
 
+    it('should add a single entity with sub type', () => {
+        const body = 'Heckelbery Finn';
+        const author = gql`
+            mutation save ($obj: NoteInput!) {
+                saveNote (obj: $obj) {
+                    id
+                    title
+                    content {
+                        body
+                    }
+                }
+           }
+        `;
+        const values = {
+            obj: {
+                title: 'Heckelbery Finn',
+                authorId: 8,
+                content: {
+                    body: body,
+                    footer: 'The end'
+                }
+            }
+        };
+
+        return chai.request(server)
+            .post('/graphql')
+            .send({ query: author, variables: values })
+            .then(res => {
+                expect(res).to.have.status(200);
+                //expect(res.body.data.content.body).to.equal(body);
+            });
+    });
+
     it('should delete a single entity', () => {
         const author = gql`
             mutation delete ($id: ID!) {
@@ -92,7 +125,7 @@ describe('query', () => {
            }
         `;
         const values = {
-            id: 3
+            id: 4
         };
 
         return chai.request(server)
