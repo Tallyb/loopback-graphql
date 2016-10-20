@@ -29,6 +29,10 @@
     "birth_date": {
       "type": "date",
       "required": true
+    },
+    "user": {
+      "type": "string | User",
+      "required": false 
     }
   },
   "validations": [],
