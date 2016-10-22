@@ -7,6 +7,17 @@
     },
     "content": {
       "type": "Content"
+    },
+    "Genre": {
+      "type": "string",
+      "required": false,
+      "enum": [
+        "HUMOR",
+        "SCI_FI",
+        "HORROR",
+        "ROMANCE",
+        "NON_FICTION"
+      ]
     }
   },
   "validations": [],

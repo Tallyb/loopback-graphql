@@ -15,17 +15,7 @@
       "type": "string",
       "required": true
     },
-    "Genre": {
-      "type": "string",
-      "required": false,
-      "enum": [
-        "HUMOR",
-        "SCI_FI",
-        "HORROR",
-        "ROMANCE",
-        "NON_FICTION"
-      ]
-    },
+    
     "birth_date": {
       "type": "date",
       "required": true
@@ -49,5 +39,6 @@
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+  }
 }

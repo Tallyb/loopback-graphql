@@ -23,8 +23,8 @@
     "publish:patch": "npm run test && npm version patch && npm run changelog"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tallyb/loopback-graphql.git"
+    "url": "git+https://github.com/tallyb/loopback-graphql.git",
+    "type": "git"
   },
   "keywords": [
     "Loopback",
