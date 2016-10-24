@@ -23,7 +23,8 @@
     "user": {
       "type": "string | User",
       "required": false 
-    }
+    },
+    "dream": "Object"
   },
   "validations": [],
   "relations": {
