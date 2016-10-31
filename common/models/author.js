@@ -16,7 +16,7 @@ module.exports = function (Author) {
                     'type': 'number'
                 },{
                     'arg': 'friend',
-                    'type': 'number'
+                    'type': ['number']
                 }
             ],
 
