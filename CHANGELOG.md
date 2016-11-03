@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0"></a>
+# [0.7.0](https://github.com/tallyb/loopback-graphql/compare/v0.6.0...v0.7.0) (2016-11-03)
+
+
+### Bug Fixes
+
+* **typedefs:** Include generated properties ([a10c444](https://github.com/tallyb/loopback-graphql/commit/a10c444))
+
+
+### Features
+
+* **app:** Fix hidden attributes ([8d5c8a0](https://github.com/tallyb/loopback-graphql/commit/8d5c8a0))
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://github.com/tallyb/loopback-graphql/compare/v0.5.3...v0.6.0) (2016-10-18)
 
