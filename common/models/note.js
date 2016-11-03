@@ -2,14 +2,14 @@
 
 module.exports = function(Note) {
 
-    function clear() {
+    Note.clear = () => {
         return {
             note: {
                 Content: ''
             },
             previousClear: new Date()
         };
-    }
+    };
 
     Note.remoteMethod(
         'clear', {

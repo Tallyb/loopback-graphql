@@ -19,7 +19,7 @@ describe('query', () => {
     });
 
     it('should execute a plural query', () => {
-        const notes = gql`
+        const notes = gql `
         query {
             Notes (first: 2) {
                 title
@@ -30,7 +30,9 @@ describe('query', () => {
         `;
         return chai.request(server)
             .post('/graphql')
-            .send({ query: notes })
+            .send({
+                query: notes
+            })
             .then(res => {
                 expect(res).to.have.status(200);
                 expect(res.body.data.Notes.length).to.equal(2);
@@ -38,19 +40,23 @@ describe('query', () => {
     });
 
     it('should execute a single query', () => {
-        const notes = gql`
+        const notes = gql `
         query {
             Note (id: 1) {
                 title
-                content
                 id
+                content
+                
             }
         }
         `;
         return chai.request(server)
             .post('/graphql')
-            .send({ query: notes })
+            .send({
+                query: notes
+            })
             .then(res => {
+                console.log('RES', res.body.data);
                 expect(res).to.have.status(200);
                 expect(res.body.data.Note.id).to.equal(1);
             });
