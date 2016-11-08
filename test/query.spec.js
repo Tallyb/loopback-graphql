@@ -18,29 +18,30 @@ describe('query', () => {
         });
     });
 
-    it('should execute a plural query', () => {
-        const notes = gql `
+    describe('single entity', () => {
+        it('should execute a plural query', () => {
+            const notes = gql `
         query {
-            Notes (first: 2) {
+            allNotes (first: 2) {
                 title
                 content
                 id
             }
         }
         `;
-        return chai.request(server)
-            .post('/graphql')
-            .send({
-                query: notes
-            })
-            .then(res => {
-                expect(res).to.have.status(200);
-                expect(res.body.data.Notes.length).to.equal(2);
-            });
-    });
+            return chai.request(server)
+                .post('/graphql')
+                .send({
+                    query: notes
+                })
+                .then(res => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.data.allNotes.length).to.equal(2);
+                });
+        });
 
-    it('should execute a single query', () => {
-        const notes = gql `
+        it('should execute a single query', () => {
+            const notes = gql `
         query {
             Note (id: 1) {
                 title
@@ -50,15 +51,41 @@ describe('query', () => {
             }
         }
         `;
-        return chai.request(server)
-            .post('/graphql')
-            .send({
-                query: notes
-            })
-            .then(res => {
-                console.log('RES', res.body.data);
-                expect(res).to.have.status(200);
-                expect(res.body.data.Note.id).to.equal(1);
-            });
+            return chai.request(server)
+                .post('/graphql')
+                .send({
+                    query: notes
+                })
+                .then(res => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.data.Note.id).to.equal(1);
+                });
+        });
+    });
+
+    describe('relationships', () => {
+        it('should query related entity', () => {
+            const AuthorNotes = gql `
+            query {
+                Author (id: 5){
+            first_name
+            id
+            notes {
+            title
+            }
+        }
+        }
+        `;
+            return chai.request(server)
+                .post('/graphql')
+                .send({
+                    query: AuthorNotes
+                })
+                .then(res => {
+                    console.log('RES', res.body.data);
+                    expect(res).to.have.status(200);
+                    expect(res.body.data.Author.notes.length).to.be.above(0);
+                });
+        });
     });
 });
