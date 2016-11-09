@@ -21,13 +21,16 @@ describe('query', () => {
     describe('single entity', () => {
         it('should execute a plural query', () => {
             const notes = gql `
-        query {
-            allNotes (first: 2) {
-                title
-                content
-                id
+        {
+            allNotes(first: 2) {
+                totalCount
+                Notes {
+                    title
+                    id
+                }
             }
         }
+
         `;
             return chai.request(server)
                 .post('/graphql')
@@ -36,7 +39,9 @@ describe('query', () => {
                 })
                 .then(res => {
                     expect(res).to.have.status(200);
-                    expect(res.body.data.allNotes.length).to.equal(2);
+                    let result = res.body.data;
+                    expect(result.allNotes.totalCount).to.be.above(1);
+                    expect(result.allNotes.Notes.length).to.equal(2);
                 });
         });
 
