@@ -93,4 +93,41 @@ describe('query', () => {
                 });
         });
     });
+
+    describe('With Paginagion', () => {
+        it('should query related entity', () => {
+            const allNotes = `{
+                    allNotes(first: 2) {
+                        totalCount
+                        pageInfo {
+                            hasNextPage
+                            hasPreviousPage
+                            startCursor
+                            endCursor
+                        }
+                        edges {
+                        node {
+                            title
+                            id
+                        }
+                        cursor
+                        }
+                        
+                    }
+                    }
+
+        `;
+            return chai.request(server)
+                .post('/graphql')
+                .send({
+                    query: allNotes
+                })
+                .then(res => {
+                    expect(res).to.have.status(200);
+                    res = res.body.data;
+                    console.log('RES', res);
+                    expect(res.allNotes.edges.length).to.be.above(0);
+                });
+        });
+    });
 });
