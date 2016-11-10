@@ -18,24 +18,22 @@ describe('query', () => {
         });
     });
 
-    describe('single entity', () => {
+    describe('Single entity', () => {
         it('should execute a plural query', () => {
-            const notes = gql `
-        {
-            allNotes(first: 2) {
-                totalCount
-                Notes {
-                    title
-                    id
+            const query = gql `
+            {
+                allNotes(first: 2) {
+                    totalCount
+                    Notes {
+                        title
+                        id
+                    }
                 }
-            }
-        }
-
-        `;
+            }`;
             return chai.request(server)
                 .post('/graphql')
                 .send({
-                    query: notes
+                    query
                 })
                 .then(res => {
                     expect(res).to.have.status(200);
@@ -46,20 +44,20 @@ describe('query', () => {
         });
 
         it('should execute a single query', () => {
-            const notes = gql `
-        query {
-            Note (id: 1) {
-                title
-                id
-                content
-                
-            }
-        }
-        `;
+            const query = gql `
+                query {
+                    Note (id: 1) {
+                        title
+                        id
+                        content
+                        
+                    }
+                }
+                `;
             return chai.request(server)
                 .post('/graphql')
                 .send({
-                    query: notes
+                    query
                 })
                 .then(res => {
                     expect(res).to.have.status(200);
@@ -70,21 +68,21 @@ describe('query', () => {
 
     describe('relationships', () => {
         it('should query related entity', () => {
-            const AuthorNotes = gql `
-            query {
-                Author (id: 5){
-            first_name
-            id
-            notes {
-            title
+            const query = gql `
+                query {
+                    Author (id: 5){
+                first_name
+                id
+                notes {
+                title
+                }
             }
-        }
-        }
-        `;
+            }
+            `;
             return chai.request(server)
                 .post('/graphql')
                 .send({
-                    query: AuthorNotes
+                    query
                 })
                 .then(res => {
                     console.log('RES', res.body.data);
@@ -94,40 +92,4 @@ describe('query', () => {
         });
     });
 
-    describe('With Paginagion', () => {
-        it('should query related entity', () => {
-            const allNotes = `{
-                    allNotes(first: 2) {
-                        totalCount
-                        pageInfo {
-                            hasNextPage
-                            hasPreviousPage
-                            startCursor
-                            endCursor
-                        }
-                        edges {
-                        node {
-                            title
-                            id
-                        }
-                        cursor
-                        }
-                        
-                    }
-                    }
-
-        `;
-            return chai.request(server)
-                .post('/graphql')
-                .send({
-                    query: allNotes
-                })
-                .then(res => {
-                    expect(res).to.have.status(200);
-                    res = res.body.data;
-                    console.log('RES', res);
-                    expect(res.allNotes.edges.length).to.be.above(0);
-                });
-        });
-    });
 });
