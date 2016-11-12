@@ -18,7 +18,7 @@ describe('Pagination', () => {
         });
     });
 
-    it('should query related entity', () => {
+    it('should query first 2 entities', () => {
         const query = gql `{
                     allNotes(first: 2) {
                         totalCount
@@ -53,7 +53,7 @@ describe('Pagination', () => {
             });
     });
 
-    it('should query related entity', () => {
+    it('should query entity after cursor', () => {
         const query = gql `{       
             allNotes (after: "Y29ubmVjdGlvbi40", first: 3) {
                 pageInfo  {
@@ -85,4 +85,43 @@ describe('Pagination', () => {
                 expect(res.allNotes.pageInfo.hasPreviousPage).to.be.true;
             });
     });
+
+    it('should query related entity on edge', () => {
+        const query = gql `{
+                allAuthors {
+                    pageInfo {
+                        hasNextPage
+                        hasPreviousPage
+                        startCursor
+                        endCursor
+                    }
+                    edges {
+                    node {
+                        id
+                        last_name
+                        notes {
+                        totalCount
+                        Notes {
+                            title
+                        }
+                        }
+                    }
+                    cursor
+                    }
+                }
+                }
+            `;
+        return chai.request(server)
+            .post('/graphql')
+            .send({
+                query
+            })
+            .then(res => {
+                expect(res).to.have.status(200);
+                res = res.body.data;
+                console.log('RES', res);
+                expect(res.allAuthors.edges[0].node.Notes.length).to.be.above(1);
+            });
+    });
+
 });

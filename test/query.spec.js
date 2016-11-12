@@ -70,14 +70,17 @@ describe('query', () => {
         it('should query related entity', () => {
             const query = gql `
                 query {
-                    Author (id: 5){
-                first_name
-                id
-                notes {
-                title
-                }
-            }
-            }
+                    Author(id: 5) {
+                        first_name
+                        id
+                        notes {
+                        totalCount
+                        Notes {
+                            title
+                        }
+                        }
+                    }
+                    }
             `;
             return chai.request(server)
                 .post('/graphql')
@@ -87,7 +90,7 @@ describe('query', () => {
                 .then(res => {
                     console.log('RES', res.body.data);
                     expect(res).to.have.status(200);
-                    expect(res.body.data.Author.notes.length).to.be.above(0);
+                    expect(res.body.data.Author.notes.Notes.length).to.be.above(0);
                 });
         });
     });
