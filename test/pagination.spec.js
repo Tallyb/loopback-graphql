@@ -48,7 +48,6 @@ describe('Pagination', () => {
             .then(res => {
                 expect(res).to.have.status(200);
                 res = res.body.data;
-                console.log('RES', res);
                 expect(res.allNotes.edges.length).to.be.above(0);
             });
     });
@@ -79,7 +78,6 @@ describe('Pagination', () => {
             .then(res => {
                 expect(res).to.have.status(200);
                 res = res.body.data;
-                console.log('RES', res);
                 expect(res.allNotes.edges.length).to.be.above(0);
                 expect(res.allNotes.edges[0].node.id).to.be.above(4);
                 expect(res.allNotes.pageInfo.hasPreviousPage).to.be.true;
@@ -119,8 +117,11 @@ describe('Pagination', () => {
             .then(res => {
                 expect(res).to.have.status(200);
                 res = res.body.data;
-                console.log('RES', res);
-                expect(res.allAuthors.edges[0].node.Notes.length).to.be.above(1);
+                console.log('RES', res.allAuthors.edges[0]);
+
+                expect(res.allAuthors.edges[0].node.notes.Notes.length).to.be.above(0);
+                expect(res.allAuthors.edges[0].node.notes.totalCount).to.be.above(0);
+                expect(res.allAuthors.edges[0].cursor).not.to.be.empty;
             });
     });
 
