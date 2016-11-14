@@ -117,8 +117,6 @@ describe('Pagination', () => {
             .then(res => {
                 expect(res).to.have.status(200);
                 res = res.body.data;
-                console.log('RES', res.allAuthors.edges[0]);
-
                 expect(res.allAuthors.edges[0].node.notes.Notes.length).to.be.above(0);
                 expect(res.allAuthors.edges[0].node.notes.totalCount).to.be.above(0);
                 expect(res.allAuthors.edges[0].cursor).not.to.be.empty;

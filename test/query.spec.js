@@ -88,7 +88,6 @@ describe('query', () => {
                     query
                 })
                 .then(res => {
-                    console.log('RES', res.body.data);
                     expect(res).to.have.status(200);
                     expect(res.body.data.Author.notes.Notes.length).to.be.above(0);
                 });

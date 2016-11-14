@@ -30,10 +30,7 @@ module.exports = function(Author) {
             .then(res => {
                 let updated = res;
                 updated.friendIds.push(friend);
-                console.log(updated);
                 return updated.save();
-            }).then(res => {
-                console.log('AFTER UPDATE', res);
-            });
+            }).then(res => {});
     };
 };
