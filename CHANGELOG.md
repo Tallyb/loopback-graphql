@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.8.0"></a>
+# [0.8.0](https://github.com/tallyb/loopback-graphql/compare/v0.7.0...v0.8.0) (2016-11-15)
+
+
+### Features
+
+* **app:** Resolvers with edges ([883e79d](https://github.com/tallyb/loopback-graphql/commit/883e79d))
+* **app:** Support paginations ([5ca2257](https://github.com/tallyb/loopback-graphql/commit/5ca2257))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/tallyb/loopback-graphql/compare/v0.6.0...v0.7.0) (2016-11-03)
 
