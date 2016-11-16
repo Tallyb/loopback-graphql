@@ -45,7 +45,8 @@
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
     "debug": "^2.2.0",
-    "graphql": "^0.8.0",
+    "express-graphql": "^0.6.1",
+    "graphql": "^0.8.1",
     "graphql-server-express": "^0.4.3",
     "graphql-tools": "^0.8.1",
     "lodash": "^4.16.3"
