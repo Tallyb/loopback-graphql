@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.9.0"></a>
+# [0.9.0](https://github.com/tallyb/loopback-graphql/compare/v0.8.0...v0.9.0) (2016-11-20)
+
+
+### Features
+
+* **app:** Support complex models ([82e479c](https://github.com/tallyb/loopback-graphql/commit/82e479c)), closes [#7](https://github.com/tallyb/loopback-graphql/issues/7)
+
+
+
 <a name="0.8.0"></a>
 # [0.8.0](https://github.com/tallyb/loopback-graphql/compare/v0.7.0...v0.8.0) (2016-11-15)
 
