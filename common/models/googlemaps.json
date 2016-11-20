@@ -1,7 +1,7 @@
 {
     "name": "Googlemaps",
     "plural": "Googlemaps",
-    "base": "Model",
+    "base": "PersistedModel",
     "idInjection": false,
     "options": {
         "validateUpsert": true

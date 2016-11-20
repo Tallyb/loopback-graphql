@@ -46,7 +46,7 @@
         "public": false
     },
     "Googlemaps": {
-        "dataSource": null,
-        "public": false
+        "dataSource": "db",
+        "public": true
     }
 }

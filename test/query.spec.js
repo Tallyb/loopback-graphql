@@ -36,9 +36,9 @@ describe('query', () => {
                     query
                 })
                 .then(res => {
-                    console.log('RES', res);
                     expect(res).to.have.status(200);
                     let result = res.body.data;
+                    console.log('RESULT', result);
                     expect(result.allNotes.totalCount).to.be.above(1);
                     expect(result.allNotes.Notes.length).to.equal(2);
                 });
