@@ -48,5 +48,14 @@
     "Googlemaps": {
         "dataSource": "db",
         "public": true
+    },
+    "products": {
+        "dataSource": "db",
+        "public": true
+    },
+    "catalogs": {
+        "dataSource": "db",
+        "public": true
     }
+
 }
