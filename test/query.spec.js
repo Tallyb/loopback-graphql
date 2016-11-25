@@ -30,6 +30,7 @@ describe('query', () => {
                     }
                 }
             }`;
+            console.log(query);
             return chai.request(server)
                 .post('/graphql')
                 .send({
