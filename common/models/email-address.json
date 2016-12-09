@@ -1,9 +1,12 @@
 {
-  "name": "Author",
-  "base": "PersistedModel",
+  "name": "EmailAddress",
+  "base": "Model",
   "idInjection": true,
   "properties": {
-    "name": {
+    "label": {
+      "type": "string"
+    },
+    "address": {
       "type": "string"
     }
   },

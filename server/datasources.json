@@ -1,7 +1,10 @@
 {
   "db": {
     "name": "db",
-    "connector": "memory",
-    "file": "./data/data.json"
+    "connector": "memory"
+  },
+  "transient": {
+    "name": "transient",
+    "connector": "transient"
   }
 }

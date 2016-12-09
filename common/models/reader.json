@@ -1,5 +1,5 @@
 {
-  "name": "Author",
+  "name": "Reader",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {

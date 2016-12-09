@@ -1,5 +1,5 @@
 {
-  "name": "Author",
+  "name": "Book",
   "base": "PersistedModel",
   "idInjection": true,
   "properties": {
@@ -8,7 +8,15 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "people": {
+      "type": "embedsMany",
+      "model": "Link",
+      "scope": {
+        "include": "linked"
+      }
+    }
+  },
   "acls": [],
   "methods": {}
 }
