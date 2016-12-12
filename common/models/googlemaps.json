@@ -1,0 +1,78 @@
+{
+    "name": "Googlemaps",
+    "plural": "Googlemaps",
+    "base": "PersistedModel",
+    "idInjection": false,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "id": {
+            "type": "string",
+            "description": "contains a unique stable identifier denoting this place. This identifier may not be used to retrieve information about this place, but is guaranteed to be valid across sessions. It can be used to consolidate data about this place, and to verify the identity of a place across separate searches. **Note**: The `id` is now deprecated in favor of `place_id`."
+        },
+        "geometry": {
+            "type": {
+                "location": {
+                    "lat": "number",
+                    "lng": "number"
+                },
+                "viewport": {
+                    "northeast": {
+                        "lat": "number",
+                        "lng": "number"
+                    },
+                    "southwest": {
+                        "lat": "number",
+                        "lng": "number"
+                    }
+                }
+            },
+            "description": "contains geometry information about the result, generally including the `location` (geocode) of the place and (optionally) the `viewport` identifying its general area of coverage."
+        },
+        "photos": {
+            "description": "an array of `photo` objects, each containing a reference to an image. A Place Search will return at most one `photo` object. Performing a Place Details request on the place may return up to ten photos. More information about Place Photos and how you can use the images in your application can be found in the [Place Photos](https://developers.google.com/places/web-service/photos) documentation.",
+            "type": [{
+                "photo_reference": {
+                    "type": "string",
+                    "description": " a string used to identify the photo when you perform a Photo request."
+                },
+                "height": {
+                    "type": "number",
+                    "description": " the maximum height of the image."
+                },
+                "width": {
+                    "type": "number",
+                    "description": " the maximum width of the image."
+                },
+                "html_attributions": {
+                    "type": ["string"],
+                    "description": "contains any required attributions. This field will always be present, but may be empty."
+                }
+            }]
+        },
+        "scope": {
+            "type": "string",
+            "description": [
+                "Indicates the scope of the `place_id`. The possible values are:", " * `APP`: The place ID is recognised by your application only. This is because your application added the place, and the place has not yet passed the moderation process.", " * `GOOGLE`: The place ID is available to other applications and on Google Maps.", "**Note**: The `scope` field is included only in Nearby Search results and Place Details results. You can only retrieve app-scoped places via the Nearby Search and the Place Details requests. If the `scope` field is not present in a response, it is safe to assume the scope is `GOOGLE`."
+            ]
+        },
+        "alt_ids": {
+            "type": {
+                "place_id": {
+                    "type": "string",
+                    "description": "The most likely reason for a place to have an alternative place ID is if your application adds a place and receives an application-scoped place ID, then later receives a Google-scoped place ID after passing the moderation process."
+                },
+                "scope": {
+                    "type": "string",
+                    "description": "The scope of an alternative place ID will always be APP, indicating that the alternative place ID is recognised by your application only."
+                }
+            },
+            "description": ["An array of zero, one or more alternative place IDs for the place, with a scope related to each alternative ID. Note: This array may be empty or not present.", "For example, let's assume your application adds a place and receives a `place_id` of `AAA` for the new place. Later, the place passes the moderation process and receives a Google-scoped `place_id` of `BBB`. From this point on, the information for this place will contain:", "```", "\"results\" : [", "      {", "        \"place_id\" : \"BBB\",", "        \"scope\" : \"GOOGLE\",", "        \"alt_ids\" : [", "          {", "            \"place_id\" : \"AAA\",", "            \"scope\" : \"APP\",", "          }", "        ],", "      }", "    ]", "```"]
+        }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+}

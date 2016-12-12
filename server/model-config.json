@@ -4,6 +4,7 @@
       "loopback/common/models",
       "loopback/server/models",
       "../common/models",
+      "../common/types",
       "./models"
     ]
   },
@@ -61,5 +62,29 @@
   "Order": {
     "dataSource": "db",
     "public": true
+  },
+  "Note": {
+      "dataSource": "db",
+      "public": true
+  },
+  "Author": {
+      "dataSource": "db",
+      "public": true
+  },
+  "Content": {
+      "dataSource": null,
+      "public": false
+  },
+  "Googlemaps": {
+      "dataSource": "db",
+      "public": true
+  },
+  "products": {
+      "dataSource": "db",
+      "public": true
+  },
+  "catalogs": {
+      "dataSource": "db",
+      "public": true
   }
 }

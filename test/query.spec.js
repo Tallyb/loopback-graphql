@@ -4,8 +4,17 @@ var chai = require('chai')
     .use(require('chai-http'));
 var server = require('../server/server');
 var gql = require('graphql-tag');
+var Promise = require('bluebird');
+var cpx = require('cpx');
 
 describe('query', () => {
+
+    before(() => {
+        return Promise.fromCallback((cb) => {
+            return cpx.copy('./data.json', './data/', cb);
+        });
+    });
+
     describe('Single entity', () => {
         it('should execute a single query with relation', () => {
             const query = gql `

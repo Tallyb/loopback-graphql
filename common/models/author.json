@@ -1,14 +1,48 @@
 {
-  "name": "Author",
-  "base": "PersistedModel",
-  "idInjection": true,
-  "properties": {
-    "name": {
-      "type": "string"
-    }
-  },
-  "validations": [],
-  "relations": {},
-  "acls": [],
-  "methods": {}
+    "name": "Author",
+    "plural": "Authors",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+        "validateUpsert": true
+    },
+    "properties": {
+        "first_name": {
+            "type": "string",
+            "required": true
+        },
+        "last_name": {
+            "type": "string",
+            "required": true
+        },
+
+        "birth_date": {
+            "type": "date",
+            "required": true
+        },
+        "user": {
+            "type": "User",
+            "required": false
+        },
+        "dream": "Object"
+    },
+    "validations": [],
+    "relations": {
+        "notes": {
+            "type": "hasMany",
+            "model": "Note",
+            "foreignKey": ""
+        },
+        "friends": {
+            "type": "referencesMany",
+            "model": "Author",
+            "foreignKey": "friendIds"
+        },
+        "others": {
+            "type": "hasMany",
+            "model": "Author"
+        }
+    },
+    "acls": [],
+    "methods": {}
 }
