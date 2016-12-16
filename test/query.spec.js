@@ -1,14 +1,11 @@
 'use strict';
-var Promise = require('bluebird');
-
 var expect = require('chai').expect;
 var chai = require('chai')
     .use(require('chai-http'));
 var server = require('../server/server');
-var cpx = require('cpx');
-
 var gql = require('graphql-tag');
-// var _ = require('lodash');
+var Promise = require('bluebird');
+var cpx = require('cpx');
 
 describe('query', () => {
 
@@ -19,18 +16,26 @@ describe('query', () => {
     });
 
     describe('Single entity', () => {
-        it('should execute a plural query', () => {
+        it('should execute a single query with relation', () => {
             const query = gql `
-            {
-                allNotes(first: 2) {
-                    totalCount
-                    Notes {
-                        title
-                        id
+            query {
+              allOrders(first:1){
+                edges{
+                  node{
+                    date
+                    description
+                    customer{
+                      edges{
+                        node{
+                          name
+                          age
+                        }
+                      }
                     }
+                  }
                 }
+              }
             }`;
-            console.log(query);
             return chai.request(server)
                 .post('/graphql')
                 .send({
@@ -39,50 +44,39 @@ describe('query', () => {
                 .then(res => {
                     expect(res).to.have.status(200);
                     let result = res.body.data;
-                    console.log('RESULT', result);
-                    expect(result.allNotes.totalCount).to.be.above(1);
-                    expect(result.allNotes.Notes.length).to.equal(2);
-                });
-        });
-
-        it('should execute a single query', () => {
-            const query = gql `
-                query {
-                    Note (id: 1) {
-                        title
-                        id
-                        content
-                        
-                    }
-                }
-                `;
-            return chai.request(server)
-                .post('/graphql')
-                .send({
-                    query
-                })
-                .then(res => {
-                    expect(res).to.have.status(200);
-                    expect(res.body.data.Note.id).to.equal(1);
+                    expect(result.allOrders.edges.length).to.equal(1);
                 });
         });
     });
-
     describe('relationships', () => {
-        it('should query related entity', () => {
+        it('should query related entity with nested relational data', () => {
             const query = gql `
                 query {
-                    Author(id: 5) {
-                        first_name
-                        id
-                        notes {
-                        totalCount
-                        Notes {
-                            title
-                        }
-                        }
-                    }
-                    }
+                 allCustomers(first:2){
+                   edges{
+                     node{
+                       name
+                       age
+                       orders{
+                         edges{
+                           node{
+                             date
+                             description
+                             customer{
+                               edges{
+                                 node{
+                                   name
+                                   age
+                                 }
+                               }
+                             }
+                           }
+                         }
+                       }
+                     }
+                   }
+                 }
+               }
             `;
             return chai.request(server)
                 .post('/graphql')
@@ -91,7 +85,7 @@ describe('query', () => {
                 })
                 .then(res => {
                     expect(res).to.have.status(200);
-                    expect(res.body.data.Author.notes.Notes.length).to.be.above(0);
+                    expect(res.body.data.allCustomers.edges.length).to.equal(2);
                 });
         });
     });

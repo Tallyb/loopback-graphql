@@ -4,6 +4,6 @@
 // License text available at https://opensource.org/licenses/MIT
 'use strict';
 
-module.exports = function enableAuthentication(server) {
-  // enable authentication
+module.exports = function(EmailAddress) {
+
 };

@@ -1,0 +1,17 @@
+{
+  "name": "EmailAddress",
+  "base": "Model",
+  "idInjection": true,
+  "properties": {
+    "label": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

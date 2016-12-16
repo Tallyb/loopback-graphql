@@ -1,0 +1,34 @@
+{
+  "name": "Link",
+  "base": "Model",
+  "idInjection": true,
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "linked": {
+      "type": "belongsTo",
+      "polymorphic": {
+        "idType": "number"
+      },
+      "properties": {
+        "name": "name"
+      },
+      "options": {
+        "invertProperties": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

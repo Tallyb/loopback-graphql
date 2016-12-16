@@ -1,0 +1,22 @@
+{
+  "name": "Book",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "people": {
+      "type": "embedsMany",
+      "model": "Link",
+      "scope": {
+        "include": "linked"
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
