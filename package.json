@@ -73,7 +73,7 @@
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.4.0",
-    "loopback-datasource-juggler": "^2.39.0",
+    "loopback-datasource-juggler": "^3.1.1",
     "mocha": "^3.1.0",
     "nodemon": "^1.10.2",
     "nsp": "^2.1.0",
