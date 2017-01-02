@@ -1,61 +1,90 @@
 {
-    "_meta": {
-        "sources": [
-            "loopback/common/models",
-            "loopback/server/models",
-            "../common/models",
-            "../common/types",
-            "./models"
-        ],
-        "mixins": [
-            "loopback/common/mixins",
-            "loopback/server/mixins",
-            "../common/mixins",
-            "./mixins"
-        ]
-    },
-    "User": {
-        "dataSource": "db"
-    },
-    "AccessToken": {
-        "dataSource": "db",
-        "public": false
-    },
-    "ACL": {
-        "dataSource": "db",
-        "public": false
-    },
-    "RoleMapping": {
-        "dataSource": "db",
-        "public": false
-    },
-    "Role": {
-        "dataSource": "db",
-        "public": false
-    },
-    "Note": {
-        "dataSource": "db",
-        "public": true
-    },
-    "Author": {
-        "dataSource": "db",
-        "public": true
-    },
-    "Content": {
-        "dataSource": null,
-        "public": false
-    },
-    "Googlemaps": {
-        "dataSource": "db",
-        "public": true
-    },
-    "products": {
-        "dataSource": "db",
-        "public": true
-    },
-    "catalogs": {
-        "dataSource": "db",
-        "public": true
-    }
-
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "../common/types",
+      "./models"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Customer": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Address": {
+    "dataSource": "transient",
+    "public": false
+  },
+  "EmailAddress": {
+    "dataSource": "transient",
+    "public": false
+  },
+  "Account": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Author": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Reader": {
+    "dataSource": "db",
+    "public": false
+  },
+  "Book": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Link": {
+    "dataSource": "transient",
+    "public": false
+  },
+  "Order": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Note": {
+      "dataSource": "db",
+      "public": true
+  },
+  "Author": {
+      "dataSource": "db",
+      "public": true
+  },
+  "Content": {
+      "dataSource": null,
+      "public": false
+  },
+  "Googlemaps": {
+      "dataSource": "db",
+      "public": true
+  },
+  "products": {
+      "dataSource": "db",
+      "public": true
+  },
+  "catalogs": {
+      "dataSource": "db",
+      "public": true
+  }
 }

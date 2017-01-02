@@ -10,37 +10,24 @@
         "credentials": true,
         "maxAge": 86400
       }
-    },
-    "helmet#xssFilter": {},
-    "helmet#frameguard": {
-      "params": [
-        "deny"
-      ]
-    },
-    "helmet#hsts": {
-      "params": {
-        "maxAge": 0,
-        "includeSubdomains": true
-      }
-    },
-    "helmet#hidePoweredBy": {},
-    "helmet#ieNoOpen": {},
-    "helmet#noSniff": {},
-    "helmet#noCache": {
-      "enabled": false
     }
   },
-  "session": {},
-  "auth": {},
-  "parse": {},
-  "routes": {
+  "session": {
+  },
+  "auth": {
+  },
+  "parse": {
+  },
+  "routes:before": {
     "loopback#rest": {
-      "paths": [
-        "${restApiRoot}"
-      ]
+      "paths": ["${restApiRoot}"]
     }
   },
-  "files": {},
+  "files": {
+    "serve-static": {
+      "params": "$!../client"
+    }
+  },
   "final": {
     "loopback#urlNotFound": {}
   },
