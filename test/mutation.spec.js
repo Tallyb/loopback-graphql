@@ -58,7 +58,7 @@ describe('mutation', () => {
                         first_name
                         last_name
                     }
-                
+
                 }
            }
         `;
@@ -107,4 +107,61 @@ describe('mutation', () => {
                 expect(res).to.have.status(200);
             });
     });
+
+    it('should login and return an accessToken', () => {
+        const query = gql `
+          mutation login{
+            loginUser(credentials:{username:"naveenmeher", password:"welcome"})
+          }
+        `;
+        return chai.request(server)
+            .post('/graphql')
+            .send({
+                query
+            })
+            .then(res => {
+                expect(res).to.have.status(200);
+                expect(res).to.have.deep.property('body.data.loginUser.id');
+            });
+    });
+
+    it('should call a remoteHook and return the related data', () => {
+        const query = gql `
+        mutation a{
+          findByIdCustomer(id:"1"){
+            name
+            age
+            billingAddress {
+              id
+            }
+            emailList {
+              id
+            }
+            accountIds
+            orders {
+              edges {
+                node {
+                  id
+                  date
+                  description
+                }
+              }
+            }
+          }
+        }
+        `;
+        return chai.request(server)
+            .post('/graphql')
+            .send({
+                query
+            })
+            .then(res => {
+                expect(res).to.have.status(200);
+                expect(res).to.have.deep.property('body.data.findByIdCustomer.name');
+                expect(res).to.have.deep.property('body.data.findByIdCustomer.age');
+                expect(res).to.have.deep.property('body.data.findByIdCustomer.orders.edges[0].node.id');
+                expect(res).to.have.deep.property('body.data.findByIdCustomer.orders.edges[0].node.description');
+            });
+    });
+
 });
