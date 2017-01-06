@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.10.0"></a>
+# [0.10.0](https://github.com/tallyb/loopback-graphql/compare/v0.9.0...v0.10.0) (2017-01-06)
+
+
+### Bug Fixes
+
+* **app:** Fix models names ([c21f454](https://github.com/tallyb/loopback-graphql/commit/c21f454))
+* **app:** Fix wrong mixins ([93e8da7](https://github.com/tallyb/loopback-graphql/commit/93e8da7))
+* **package:** update graphql-tools to version 0.9.0 ([#21](https://github.com/tallyb/loopback-graphql/issues/21)) ([1f0f309](https://github.com/tallyb/loopback-graphql/commit/1f0f309))
+
+
+### Features
+
+* **app:** Adding request to context ([0a3163d](https://github.com/tallyb/loopback-graphql/commit/0a3163d))
+
+
+
 <a name="0.9.0"></a>
 # [0.9.0](https://github.com/tallyb/loopback-graphql/compare/v0.8.0...v0.9.0) (2016-11-20)
 
