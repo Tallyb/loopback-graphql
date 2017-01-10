@@ -52,7 +52,7 @@
     "promisify-node": "^0.4.0"
   },
   "devDependencies": {
-    "apollo-client": "^0.6.0",
+    "apollo-client": "^0.7.1",
     "babel-eslint": "^7.0.0",
     "bluebird": "^3.4.6",
     "chai": "^3.5.0",
