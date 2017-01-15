@@ -1,6 +1,6 @@
 {
   "name": "loopback-graphql",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Add Apollo Server or GraphQL queries on your Loopback server",
   "main": "src/index.js",
   "directories": {
@@ -45,13 +45,14 @@
     "body-parser": "^1.15.2",
     "graphql": "^0.8.2",
     "graphql-date": "^1.0.2",
-    "graphql-server-express": "^0.4.3",
-    "graphql-tools": "^0.8.1",
+    "graphql-server-express": "^0.5.0",
+    "graphql-tools": "^0.9.0",
     "graphql-type-json": "^0.1.4",
-    "lodash": "^4.16.3"
+    "lodash": "^4.16.3",
+    "promisify-node": "^0.4.0"
   },
   "devDependencies": {
-    "apollo-client": "^0.5.2",
+    "apollo-client": "^0.7.1",
     "babel-eslint": "^7.0.0",
     "bluebird": "^3.4.6",
     "chai": "^3.5.0",
@@ -70,10 +71,10 @@
     "graphql-tag": "^1.0.0",
     "helmet": "^3.1.0",
     "istanbul": "^0.4.5",
-    "loopback": "^2.22.0",
+    "loopback": "^3.1.1",
     "loopback-boot": "^2.6.5",
-    "loopback-component-explorer": "^2.4.0",
     "loopback-datasource-juggler": "^3.1.1",
+    "loopback-component-explorer": "^4.0.0",
     "mocha": "^3.1.0",
     "nodemon": "^1.10.2",
     "nsp": "^2.1.0",

@@ -38,13 +38,5 @@
     },
     "methods": [],
     "permissions": "private",
-    "mixins": {
-        "CountFind": {},
-        "Timestamp": {},
-        "Skip0": {},
-        "Subquery": {},
-        "FieldsDefaultId": {},
-        "Acl": {},
-        "FieldsOldRelations": {}
-    }
+    "mixins": {}
 }
