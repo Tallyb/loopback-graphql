@@ -30,8 +30,7 @@
   },
   "acls": [],
   "methods": {
-    "vote": {
-      "isStatic": false,
+    "prototype.vote": {
       "accepts": [
         {
           "arg": "rank",
