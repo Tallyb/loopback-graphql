@@ -94,7 +94,7 @@ describe('mutation', () => {
            }
         `;
         const variables = {
-            id: 6
+            id: 3
         };
 
         return chai.request(server)
