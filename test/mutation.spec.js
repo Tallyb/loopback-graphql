@@ -1,22 +1,15 @@
 'use strict';
-var Promise = require('bluebird');
 
 var expect = require('chai').expect;
 var chai = require('chai')
     .use(require('chai-http'));
 var server = require('../server/server');
-var cpx = require('cpx');
+var testHelper = require('./testHelper');
 
 var gql = require('graphql-tag');
 // var _ = require('lodash');
 
 describe('mutation', () => {
-
-    before(() => {
-        return Promise.fromCallback((cb) => {
-            return cpx.copy('./data.json', './data/', cb);
-        });
-    });
 
     it('should add a single entity', () => {
         const query = gql `
@@ -36,12 +29,7 @@ describe('mutation', () => {
             }
         };
 
-        return chai.request(server)
-            .post('/graphql')
-            .send({
-                query,
-                variables
-            })
+        return testHelper.gqlRequest(query, variables)
             .then(res => {
                 expect(res).to.have.status(200);
             });
@@ -73,12 +61,7 @@ describe('mutation', () => {
             }
         };
 
-        return chai.request(server)
-            .post('/graphql')
-            .send({
-                query,
-                variables
-            })
+        return testHelper.gqlRequest(query, variables)
             .then(res => {
                 expect(res).to.have.status(200);
                 //expect(res.body.data.content.body).to.equal(body);
@@ -94,7 +77,7 @@ describe('mutation', () => {
            }
         `;
         const variables = {
-            id: 3
+            id: 7
         };
 
         return chai.request(server)
@@ -108,60 +91,61 @@ describe('mutation', () => {
             });
     });
 
-    it('should login and return an accessToken', () => {
-        const query = gql `
-          mutation login{
-            loginUser(credentials:{username:"naveenmeher", password:"welcome"})
-          }
-        `;
-        return chai.request(server)
-            .post('/graphql')
-            .send({
-                query
-            })
-            .then(res => {
-                expect(res).to.have.status(200);
-                expect(res).to.have.deep.property('body.data.loginUser.id');
-            });
-    });
+    describe('remote methods', () => {
 
-    it('should call a remoteHook and return the related data', () => {
-        const query = gql `
-        mutation a{
-          findByIdCustomer(id:"1"){
-            name
-            age
-            billingAddress {
-              id
-            }
-            emailList {
-              id
-            }
-            accountIds
-            orders {
-              edges {
-                node {
-                  id
-                  date
-                  description
-                }
-              }
-            }
-          }
+        const userInput = {
+            email: 'John@a.com',
+            password: '123456',
+            username: 'John@a.com'
+        };
+        const createUser = `
+      mutation userCreate {
+        saveUser ( obj: UserInput ) {
+          id
         }
+      }
+`;
+
+        const deleteUser = gql `
+            mutation delete ($id: ID!) {
+                deleteAuthor (id: $id) {
+                    text
+                }
+           }
         `;
-        return chai.request(server)
-            .post('/graphql')
-            .send({
-                query
-            })
-            .then(res => {
-                expect(res).to.have.status(200);
-                expect(res).to.have.deep.property('body.data.findByIdCustomer.name');
-                expect(res).to.have.deep.property('body.data.findByIdCustomer.age');
-                expect(res).to.have.deep.property('body.data.findByIdCustomer.orders.edges[0].node.id');
-                expect(res).to.have.deep.property('body.data.findByIdCustomer.orders.edges[0].node.description');
+        let userId;
+
+        beforeEach(() => {
+            return testHelper.gqlRequest(createUser, {
+                    obj: userInput
+                })
+                .then(res => {
+                    userId = res.body.data.saveUser.id;
+                });
+        });
+
+        afterEach(() => {
+            return testHelper.gqlRequest(deleteUser, {
+                id: userId
             });
+        });
+        it('should login and return an accessToken', () => {
+            const query = gql `
+          mutation login{
+            UserLogin(credentials:{username:"naveenmeher", password:"welcome"})
+          }
+        `;
+            return chai.request(server)
+                .post('/graphql')
+                .send({
+                    query
+                })
+                .then(res => {
+                    expect(res).to.have.status(200);
+                    expect(res.body.data.UserLogin.id).not.to.be.empty;
+                });
+        });
+
     });
 
 });
