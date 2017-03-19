@@ -7,3 +7,4 @@ common
 data.json
 .vscode
 .github
+./data.json
