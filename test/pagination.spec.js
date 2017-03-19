@@ -1,11 +1,7 @@
 'use strict';
-var Promise = require('bluebird');
 
 var expect = require('chai').expect;
-var chai = require('chai')
-    .use(require('chai-http'));
-var server = require('../server/server');
-var cpx = require('cpx');
+var testHelper = require('./testHelper');
 
 var gql = require('graphql-tag');
 // var _ = require('lodash');
@@ -13,9 +9,6 @@ var gql = require('graphql-tag');
 describe('Pagination', () => {
 
     before(() => {
-        return Promise.fromCallback((cb) => {
-            return cpx.copy('./data.json', './data/', cb);
-        });
     });
 
     it('should query first 2 entities', () => {
@@ -40,11 +33,7 @@ describe('Pagination', () => {
                     }
 
         `;
-        return chai.request(server)
-            .post('/graphql')
-            .send({
-                query
-            })
+        return testHelper.gqlRequest(query)
             .then(res => {
                 expect(res).to.have.status(200);
                 res = res.body.data;
@@ -69,12 +58,8 @@ describe('Pagination', () => {
                 cursor
                 }
             }
-            }`;
-        return chai.request(server)
-            .post('/graphql')
-            .send({
-                query
-            })
+        }`;
+        return testHelper.gqlRequest(query)
             .then(res => {
                 expect(res).to.have.status(200);
                 res = res.body.data;
@@ -109,11 +94,7 @@ describe('Pagination', () => {
                 }
                 }
             `;
-        return chai.request(server)
-            .post('/graphql')
-            .send({
-                query
-            })
+        return testHelper.gqlRequest(query)
             .then(res => {
                 expect(res).to.have.status(200);
                 res = res.body.data;

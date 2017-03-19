@@ -1,12 +1,12 @@
 {
   "ids": {
-    "User": 6,
-    "AccessToken": 35,
+    "User": 4,
+    "AccessToken": 2,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Note": 25,
-    "Author": 25,
+    "Note": 7,
+    "Author": 3,
     "Reader": 2,
     "Book": 2,
     "Customer": 8,
@@ -19,45 +19,10 @@
     "User": {
       "1": "{\"username\":\"tally\",\"password\":\"$2a$10$b/Ok3FC3HYCbF2LlLXpk4OSsrz5EixJfkfJittHp8eEtPQvUJZiEa\",\"email\":\"tally@a.com\",\"id\":1}",
       "2": "{\"username\":\"naveenmeher\",\"password\":\"$2a$10$tT5y2RfVUdaZvt6iVtDoUeub9WqoqLk40WF5rq4QxQFLJ4bZzzgrO\",\"email\":\"naveenmeher07@gmail.com\",\"id\":2}",
-      "3": "{\"password\":\"$2a$10$H.qbKDxc1Q0VMTWJmCVFB.gLH63./nzQ9JyIyODh4bZrFIvn2awRK\",\"email\":\"John@a.com\",\"id\":3}",
-      "4": "{\"username\":\"John1@a.com\",\"password\":\"$2a$10$O.bQoi/9wQ6z9hrBuj829.SA/5F0P7tCai2pp6Crq7aRPT6g45JnO\",\"email\":\"John1@a.com\",\"id\":4}",
-      "5": "{\"username\":\"John2@a.com\",\"password\":\"$2a$10$SXJuBCQjOuEi7yg24MJ1i.B7FYwAk8d0jjzuutFFsWhTN4v2pipSG\",\"email\":\"John2@a.com\",\"id\":5}"
+      "3": "{\"username\":\"John@a.com\",\"password\":\"$2a$10$JanckMjkZvSNIbG/OaH5V.veD6ogK0C0p0LyD.gSPi1i/b5FSl7Te\",\"email\":\"John@a.com\",\"id\":3}"
     },
     "AccessToken": {
-      "gf7M01LAsUgVtzZci6WQ8yzxQjvmJIxUqorDhO4oTiuhGmhx8UOHNvrQb6cPMiDj": "{\"id\":\"gf7M01LAsUgVtzZci6WQ8yzxQjvmJIxUqorDhO4oTiuhGmhx8UOHNvrQb6cPMiDj\",\"ttl\":1209600,\"created\":\"2016-12-23T18:44:39.376Z\",\"userId\":2}",
-      "ItiHKIJ0TjZmQbv51dolqR0nzCMwzEFCkyQ5opR5e8rRqtAY6CgdIsyYLVGbFvDa": "{\"id\":\"ItiHKIJ0TjZmQbv51dolqR0nzCMwzEFCkyQ5opR5e8rRqtAY6CgdIsyYLVGbFvDa\",\"ttl\":1209600,\"created\":\"2016-12-23T18:48:24.191Z\",\"userId\":2}",
-      "dGg6GoEWkM9K22Tk8bA37Z9CYNi2ARA7848mVVRFu5xQKp2AtudRM9uHdMX0sbvu": "{\"id\":\"dGg6GoEWkM9K22Tk8bA37Z9CYNi2ARA7848mVVRFu5xQKp2AtudRM9uHdMX0sbvu\",\"ttl\":1209600,\"created\":\"2016-12-23T18:51:35.551Z\",\"userId\":2}",
-      "3Oh9F9DgwNIhlJ5EVGD2HznFvU5C3HKWM9SVbHNHxK66BgVmVk4zcnL2h3oIsLgk": "{\"id\":\"3Oh9F9DgwNIhlJ5EVGD2HznFvU5C3HKWM9SVbHNHxK66BgVmVk4zcnL2h3oIsLgk\",\"ttl\":1209600,\"created\":\"2016-12-23T18:54:50.248Z\",\"userId\":2}",
-      "GEESDn08z0Gv8TDKZQVININZoiCgen45clXeK7p84LHW5HKXwlAAzLEscIBBJfDB": "{\"id\":\"GEESDn08z0Gv8TDKZQVININZoiCgen45clXeK7p84LHW5HKXwlAAzLEscIBBJfDB\",\"ttl\":1209600,\"created\":\"2016-12-23T18:55:30.202Z\",\"userId\":2}",
-      "LDEyTgF7suwf5daeCkYBxGEIdkzhUGHkDPES8sRwZY2zrnGzAzqJJvLGkUYmL90V": "{\"id\":\"LDEyTgF7suwf5daeCkYBxGEIdkzhUGHkDPES8sRwZY2zrnGzAzqJJvLGkUYmL90V\",\"ttl\":1209600,\"created\":\"2016-12-23T18:56:37.981Z\",\"userId\":2}",
-      "XCDmoLAOujA0S5dq2YK4X0yrl2RRB0nJbHKmp3bE3PfCeiawBQmzmTncyINhf97l": "{\"id\":\"XCDmoLAOujA0S5dq2YK4X0yrl2RRB0nJbHKmp3bE3PfCeiawBQmzmTncyINhf97l\",\"ttl\":1209600,\"created\":\"2016-12-23T19:00:56.945Z\",\"userId\":2}",
-      "jWqzIRfGzwGLoD9nySJf2c7kLxyDDSShdsArABFEtgye2i1ronNixKWM69k8EygQ": "{\"id\":\"jWqzIRfGzwGLoD9nySJf2c7kLxyDDSShdsArABFEtgye2i1ronNixKWM69k8EygQ\",\"ttl\":1209600,\"created\":\"2017-01-06T09:08:07.667Z\",\"userId\":2}",
-      "9Ib9evYcDcXfu5e9CSYAGfadUWFIDwV9nP0gwaFuCZ5kzJNzqbQd7qyyRA6MsL6C": "{\"id\":\"9Ib9evYcDcXfu5e9CSYAGfadUWFIDwV9nP0gwaFuCZ5kzJNzqbQd7qyyRA6MsL6C\",\"ttl\":1209600,\"created\":\"2017-01-06T09:15:24.729Z\",\"userId\":2}",
-      "Lyu5TIh2AEBZtr3kRDWnw8guFq9P4DwQoL9luQrPSQEkacVlCzpqrZoPoMbcCvDq": "{\"id\":\"Lyu5TIh2AEBZtr3kRDWnw8guFq9P4DwQoL9luQrPSQEkacVlCzpqrZoPoMbcCvDq\",\"ttl\":1209600,\"created\":\"2017-01-06T09:21:57.857Z\",\"userId\":2}",
-      "7BxSdFdgKwmzBnELHJ6bJm18KyVsfa2RfeK27RoxDS7K2wJSjA8QLvpT9nBuIqsA": "{\"id\":\"7BxSdFdgKwmzBnELHJ6bJm18KyVsfa2RfeK27RoxDS7K2wJSjA8QLvpT9nBuIqsA\",\"ttl\":1209600,\"created\":\"2017-01-06T09:26:03.303Z\",\"userId\":2}",
-      "CfS6B7xTFCgsbIAd1BBRl2Iitzl752ELtBxNue3OPoqt63802sckkvknUGHLmeWF": "{\"id\":\"CfS6B7xTFCgsbIAd1BBRl2Iitzl752ELtBxNue3OPoqt63802sckkvknUGHLmeWF\",\"ttl\":1209600,\"created\":\"2017-03-11T17:23:12.861Z\",\"userId\":2}",
-      "4EBQhpXjZ7ULyZTkIswEiQrnUGy8kkqrAjllSCpETrptwkxlmOL8lkx3vZUvZTTq": "{\"id\":\"4EBQhpXjZ7ULyZTkIswEiQrnUGy8kkqrAjllSCpETrptwkxlmOL8lkx3vZUvZTTq\",\"ttl\":1209600,\"created\":\"2017-03-11T17:47:52.991Z\",\"userId\":2}",
-      "7JRQlCJEQEh74XSnKUyuZn9VzSukaOl3I0PaitwqdUxTpQIJmTXpAnhrENmvnkx1": "{\"id\":\"7JRQlCJEQEh74XSnKUyuZn9VzSukaOl3I0PaitwqdUxTpQIJmTXpAnhrENmvnkx1\",\"ttl\":1209600,\"created\":\"2017-03-11T18:50:52.686Z\",\"userId\":2}",
-      "EJtcmTYTeVX0GxRHF4Ct3xDEvZszmun0L0Bceu43FZctwNK6uHcsgbDh7y2ylxrW": "{\"id\":\"EJtcmTYTeVX0GxRHF4Ct3xDEvZszmun0L0Bceu43FZctwNK6uHcsgbDh7y2ylxrW\",\"ttl\":1209600,\"created\":\"2017-03-12T09:14:52.758Z\",\"userId\":2}",
-      "B3bi1P0sNfES5brhj2OcazujMUpeyFvL6RFMGbrLsbRhawiHWRQobHmVDYpz6GfT": "{\"id\":\"B3bi1P0sNfES5brhj2OcazujMUpeyFvL6RFMGbrLsbRhawiHWRQobHmVDYpz6GfT\",\"ttl\":1209600,\"created\":\"2017-03-12T09:19:03.536Z\",\"userId\":2}",
-      "b49uKDN7pQ4ZbsiRBl6uEH0Ouf4EJY5LUM1jO1N3yFgrq4s55NNzRAG0BlHvit6c": "{\"id\":\"b49uKDN7pQ4ZbsiRBl6uEH0Ouf4EJY5LUM1jO1N3yFgrq4s55NNzRAG0BlHvit6c\",\"ttl\":1209600,\"created\":\"2017-03-12T09:21:56.655Z\",\"userId\":2}",
-      "Yq2H1uXF7SIPPrbkxZOJXqTSJJtqXI7A1USgDUFgQN5Tz9QW94Ggf7Kgl4sSAUZu": "{\"id\":\"Yq2H1uXF7SIPPrbkxZOJXqTSJJtqXI7A1USgDUFgQN5Tz9QW94Ggf7Kgl4sSAUZu\",\"ttl\":1209600,\"created\":\"2017-03-12T09:54:16.970Z\",\"userId\":2}",
-      "7OlbxrA4xGSfkqGTEChqBMFMO5pk8qQFWCgYud5aCfYa2JfKNWFP4AfTvrWAjXbH": "{\"id\":\"7OlbxrA4xGSfkqGTEChqBMFMO5pk8qQFWCgYud5aCfYa2JfKNWFP4AfTvrWAjXbH\",\"ttl\":1209600,\"created\":\"2017-03-12T09:55:52.269Z\",\"userId\":2}",
-      "yn2zGvi3lISsBYGCoA06VngV94mqFgHJTS8QN5sznK9ZwOQO1LWbGSJ0BistgVYp": "{\"id\":\"yn2zGvi3lISsBYGCoA06VngV94mqFgHJTS8QN5sznK9ZwOQO1LWbGSJ0BistgVYp\",\"ttl\":1209600,\"created\":\"2017-03-12T10:14:12.007Z\",\"userId\":2}",
-      "GvgksmQKz2EEjAWWfpncqpAqr2g8GUohcipEyxwAaSnuXCsFzET47H4c2YwUoQBI": "{\"id\":\"GvgksmQKz2EEjAWWfpncqpAqr2g8GUohcipEyxwAaSnuXCsFzET47H4c2YwUoQBI\",\"ttl\":1209600,\"created\":\"2017-03-12T10:19:28.842Z\",\"userId\":2}",
-      "pugwlWTSPC1n5CckHOzKOGACrC9le1nGCFD9sYH6DJJpHHk6ZH1E17ZJ2mPKHF4S": "{\"id\":\"pugwlWTSPC1n5CckHOzKOGACrC9le1nGCFD9sYH6DJJpHHk6ZH1E17ZJ2mPKHF4S\",\"ttl\":1209600,\"created\":\"2017-03-17T08:45:07.218Z\",\"userId\":2}",
-      "ld3JchCb3WHAxdAdf22CGlCWPfbteJqljkWC8uoQrDv5VEtAjnqEUpZSyA2MMDBE": "{\"id\":\"ld3JchCb3WHAxdAdf22CGlCWPfbteJqljkWC8uoQrDv5VEtAjnqEUpZSyA2MMDBE\",\"ttl\":1209600,\"created\":\"2017-03-17T08:46:33.686Z\",\"userId\":2}",
-      "d0YwGb3gRZP7JS5f1SXMMeBcHIIRVmbnSPZxrJwvJHJAhct08dGepOvnmMslPYQz": "{\"id\":\"d0YwGb3gRZP7JS5f1SXMMeBcHIIRVmbnSPZxrJwvJHJAhct08dGepOvnmMslPYQz\",\"ttl\":1209600,\"created\":\"2017-03-17T09:15:15.049Z\",\"userId\":2}",
-      "vOrC9p7zmEgHZv9MEtpXth2mgERfVwv3qCCpIDANFKbvVIqpB5i0yG3ctcfUA5Zp": "{\"id\":\"vOrC9p7zmEgHZv9MEtpXth2mgERfVwv3qCCpIDANFKbvVIqpB5i0yG3ctcfUA5Zp\",\"ttl\":1209600,\"created\":\"2017-03-17T11:30:44.404Z\",\"userId\":2}",
-      "CV1iVnpGAbi29z4bvafiAa8Fg9tJnqw72eNSIk11ABE7yf5IvbC7bqQxXz7m9U6x": "{\"id\":\"CV1iVnpGAbi29z4bvafiAa8Fg9tJnqw72eNSIk11ABE7yf5IvbC7bqQxXz7m9U6x\",\"ttl\":1209600,\"created\":\"2017-03-17T11:33:06.429Z\",\"userId\":2}",
-      "kUEJoWIR008MFzw3ye7KofO4MpQuUSF1HUQWGF7vqpEjBqdnNbBLG58mRO98HiYn": "{\"id\":\"kUEJoWIR008MFzw3ye7KofO4MpQuUSF1HUQWGF7vqpEjBqdnNbBLG58mRO98HiYn\",\"ttl\":1209600,\"created\":\"2017-03-17T11:42:43.307Z\",\"userId\":2}",
-      "ToHQi41k4dML4M2kysXhxWyRFNzDHiZd1LegZFemIaFx8TZdH3oguyvABJgNXIFg": "{\"id\":\"ToHQi41k4dML4M2kysXhxWyRFNzDHiZd1LegZFemIaFx8TZdH3oguyvABJgNXIFg\",\"ttl\":1209600,\"created\":\"2017-03-17T18:52:06.319Z\",\"userId\":2}",
-      "P19Hx1VhGL9IZ8y6M6mAd1Vrs1VIC6HFUgjDoXEcQTkwERTrXeH6UVCtdFxhd4n0": "{\"id\":\"P19Hx1VhGL9IZ8y6M6mAd1Vrs1VIC6HFUgjDoXEcQTkwERTrXeH6UVCtdFxhd4n0\",\"ttl\":1209600,\"created\":\"2017-03-18T18:02:22.420Z\",\"userId\":2}",
-      "TyuDqyDF0Q1wzgJIMx4VGPQRRSxOZOWnBs5tp0nJFVaFYHZNKr7D9bWM8VRaviNV": "{\"id\":\"TyuDqyDF0Q1wzgJIMx4VGPQRRSxOZOWnBs5tp0nJFVaFYHZNKr7D9bWM8VRaviNV\",\"ttl\":1209600,\"created\":\"2017-03-18T19:05:53.087Z\",\"userId\":2}",
-      "mH1jwXo1Mc9FFek9ekkzn7qmlbNMCGoi48vhC9QDZilUseAdNNUGEuvlRr1cHwbA": "{\"id\":\"mH1jwXo1Mc9FFek9ekkzn7qmlbNMCGoi48vhC9QDZilUseAdNNUGEuvlRr1cHwbA\",\"ttl\":1209600,\"created\":\"2017-03-18T19:06:47.651Z\",\"userId\":2}",
-      "WvbdBxydfl46IolEGUEohfMkxHAGmw4iDkPKljDPY7luHkU607s1EgzzIvzdtIZr": "{\"id\":\"WvbdBxydfl46IolEGUEohfMkxHAGmw4iDkPKljDPY7luHkU607s1EgzzIvzdtIZr\",\"ttl\":1209600,\"created\":\"2017-03-18T19:07:40.655Z\",\"userId\":2}",
-      "YUcK103UICF7EW6cSkHtdfWDkAo6ygWlnIYu1v3uEm2omIZdlfF2w0M6syj2oycf": "{\"id\":\"YUcK103UICF7EW6cSkHtdfWDkAo6ygWlnIYu1v3uEm2omIZdlfF2w0M6syj2oycf\",\"ttl\":1209600,\"created\":\"2017-03-18T19:09:02.881Z\",\"userId\":2}",
-      "3EWSAeSEqvgpeGf2eui9y9qHU3dwXHko4gtOADsGjHbu4lW5EerAPmCx4axrzbCg": "{\"id\":\"3EWSAeSEqvgpeGf2eui9y9qHU3dwXHko4gtOADsGjHbu4lW5EerAPmCx4axrzbCg\",\"ttl\":1209600,\"created\":\"2017-03-18T19:19:31.743Z\",\"userId\":4}"
+      "e7Q8CTU7baTM3ugJLSjN3kFNshWl0X4sCuvF8V9j2R5mcJNTOpFN4dlGrEbdkpva": "{\"id\":\"e7Q8CTU7baTM3ugJLSjN3kFNshWl0X4sCuvF8V9j2R5mcJNTOpFN4dlGrEbdkpva\",\"ttl\":1209600,\"created\":\"2017-03-19T11:17:11.209Z\",\"userId\":2}"
     },
     "ACL": {},
     "RoleMapping": {},
@@ -68,25 +33,10 @@
       "3": "{\"title\":\"A room with a View\",\"authorId\":3,\"id\":3}",
       "4": "{\"title\":\"The Bluest Eye\",\"authorId\":5,\"id\":4}",
       "5": "{\"title\":\"Of Mice and Men\",\"Genre\":\"HUMOR\",\"authorId\":4,\"id\":5}",
-      "6": "{\"title\":\"Love and Prejudice\",\"authorId\":8,\"Genre\":\"ROMANCE\",\"id\":6}",
-      "18": "{\"title\":\"Heckelbery Finn\",\"content\":{\"body\":\"Heckelbery Finn\",\"footer\":\"The end\"},\"authorId\":8,\"id\":18}",
-      "19": "{\"title\":\"Heckelbery Finn\",\"content\":{\"body\":\"Heckelbery Finn\",\"footer\":\"The end\"},\"authorId\":8,\"id\":19}",
-      "20": "{\"title\":\"Heckelbery Finn\",\"content\":{\"body\":\"Heckelbery Finn\",\"footer\":\"The end\"},\"authorId\":8,\"id\":20}",
-      "21": "{\"title\":\"Heckelbery Finn\",\"content\":{\"body\":\"Heckelbery Finn\",\"footer\":\"The end\"},\"authorId\":8,\"id\":21}",
-      "22": "{\"title\":\"Heckelbery Finn\",\"content\":{\"body\":\"Heckelbery Finn\",\"footer\":\"The end\"},\"authorId\":8,\"id\":22}",
-      "23": "{\"title\":\"Heckelbery Finn\",\"content\":{\"body\":\"Heckelbery Finn\",\"footer\":\"The end\"},\"authorId\":8,\"id\":23}",
-      "24": "{\"title\":\"Heckelbery Finn\",\"content\":{\"body\":\"Heckelbery Finn\",\"footer\":\"The end\"},\"authorId\":8,\"id\":24}"
+      "6": "{\"title\":\"Love and Prejudice\",\"authorId\":8,\"Genre\":\"ROMANCE\",\"id\":6}"
     },
     "Author": {
-      "7": "{\"first_name\":\"Mark\",\"last_name\":\"Twain\",\"birth_date\":\"1789-10-15T00:00:00.000Z\",\"id\":7,\"friendIds\":[8,6]}",
-      "8": "{\"first_name\":\"Jane\",\"last_name\":\"Austin\",\"birth_date\":\"1883-10-15T00:00:00.000Z\",\"id\":8,\"friendIds\":[5,7]}",
-      "18": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-03-17T11:30:43.949Z\",\"friendIds\":[],\"id\":18}",
-      "19": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-03-17T11:33:06.004Z\",\"friendIds\":[],\"id\":19}",
-      "20": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-03-17T11:42:42.800Z\",\"friendIds\":[],\"id\":20}",
-      "21": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-03-17T18:52:05.842Z\",\"friendIds\":[],\"id\":21}",
-      "22": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-03-18T16:49:32.525Z\",\"friendIds\":[],\"id\":22}",
-      "23": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-03-18T17:58:28.140Z\",\"friendIds\":[],\"id\":23}",
-      "24": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-03-18T19:09:02.261Z\",\"friendIds\":[],\"id\":24}"
+      "1": "{\"first_name\":\"Jane\",\"last_name\":\"Austin\",\"birth_date\":\"1883-10-15T00:00:00.000Z\",\"id\":8,\"friendIds\":[5,7]}"
     },
     "Reader": {
       "1": "{\"name\":\"Reader 1\",\"id\":1}"

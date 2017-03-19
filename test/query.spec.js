@@ -1,18 +1,11 @@
 'use strict';
 var expect = require('chai').expect;
-var chai = require('chai')
-    .use(require('chai-http'));
-var server = require('../server/server');
 var gql = require('graphql-tag');
-var Promise = require('bluebird');
-var cpx = require('cpx');
+var testHelper = require('./testHelper');
 
 describe('query', () => {
 
     before(() => {
-        return Promise.fromCallback((cb) => {
-            return cpx.copy('./data.json', './data/', cb);
-        });
     });
 
     describe('Single entity', () => {
@@ -36,11 +29,7 @@ describe('query', () => {
                 }
               }
             }`;
-            return chai.request(server)
-                .post('/graphql')
-                .send({
-                    query
-                })
+            return testHelper.gqlRequest(query)
                 .then(res => {
                     expect(res).to.have.status(200);
                     let result = res.body.data;
@@ -78,11 +67,7 @@ describe('query', () => {
                  }
                }
             `;
-            return chai.request(server)
-                .post('/graphql')
-                .send({
-                    query
-                })
+            return testHelper.gqlRequest(query)
                 .then(res => {
                     expect(res).to.have.status(200);
                     expect(res.body.data.allCustomers.edges.length).to.equal(2);

@@ -10,7 +10,7 @@
     "commit": "git-cz",
     "eslint": "eslint .",
     "lint": "npm run eslint",
-    "data": "cpx ./data.json ./data/",
+    "data": "cpx ./data/data.json ./",
     "pretest": "npm run eslint && npm run data",
     "test": "npm run data && mocha --reporter spec --timeout 10000",
     "server": "node server/server.js",
