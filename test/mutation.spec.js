@@ -1,9 +1,6 @@
 'use strict';
 
 var expect = require('chai').expect;
-var chai = require('chai')
-    .use(require('chai-http'));
-var server = require('../server/server');
 var testHelper = require('./testHelper');
 
 var gql = require('graphql-tag');
@@ -11,25 +8,41 @@ var gql = require('graphql-tag');
 
 describe('mutation', () => {
 
-    it('should add a single entity', () => {
-        const query = gql `
+    it('should add and Delete single entity', () => {
+        let id;
+        const createAuthor = gql `
             mutation save ($obj: AuthorInput!) {
                 saveAuthor (obj: $obj) {
                     first_name
                     last_name
                     birth_date
+                    id
                 }
            }
         `;
-        const variables = {
-            obj: {
-                first_name: 'Virginia',
-                last_name: 'Wolf',
-                birth_date: new Date()
-            }
+        const authorInput = {
+            first_name: 'Virginia',
+            last_name: 'Wolf',
+            birth_date: new Date()
         };
+        const deleteAuthor = gql `
+            mutation delete ($id: ID!) {
+                deleteAuthor (id: $id) {
+                    text
+                }
+           }
+        `;
 
-        return testHelper.gqlRequest(query, variables)
+        return testHelper.gqlRequest(createAuthor, {
+                obj: authorInput
+            })
+            .then(res => {
+                expect(res).to.have.status(200);
+                id = res.body.data.saveAuthor.id;
+                return testHelper.gqlRequest(deleteAuthor, {
+                    id: id
+                });
+            })
             .then(res => {
                 expect(res).to.have.status(200);
             });
@@ -53,7 +66,6 @@ describe('mutation', () => {
         const variables = {
             obj: {
                 title: 'Heckelbery Finn',
-                authorId: 8,
                 content: {
                     body: body,
                     footer: 'The end'
@@ -65,29 +77,6 @@ describe('mutation', () => {
             .then(res => {
                 expect(res).to.have.status(200);
                 //expect(res.body.data.content.body).to.equal(body);
-            });
-    });
-
-    it('should delete a single entity', () => {
-        const query = gql `
-            mutation delete ($id: ID!) {
-                deleteAuthor (id: $id) {
-                    text
-                }
-           }
-        `;
-        const variables = {
-            id: 7
-        };
-
-        return chai.request(server)
-            .post('/graphql')
-            .send({
-                query,
-                variables
-            })
-            .then(res => {
-                expect(res).to.have.status(200);
             });
     });
 
@@ -105,7 +94,6 @@ describe('mutation', () => {
             }
           }
         `;
-
         const deleteUser = gql `
             mutation delete ($id: ID!) {
                 deleteAuthor (id: $id) {
@@ -135,11 +123,7 @@ describe('mutation', () => {
             UserLogin(credentials:{username:"naveenmeher", password:"welcome"})
           }
         `;
-            return chai.request(server)
-                .post('/graphql')
-                .send({
-                    query
-                })
+            return testHelper.gqlRequest(query)
                 .then(res => {
                     expect(res).to.have.status(200);
                     expect(res.body.data.UserLogin.id).not.to.be.empty;

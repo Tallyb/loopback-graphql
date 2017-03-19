@@ -5,7 +5,6 @@ var chai = require('chai')
 var server = require('../server/server');
 
 function gqlRequest(query, variables) {
-
     return chai.request(server)
         .post('/graphql')
         .send({
