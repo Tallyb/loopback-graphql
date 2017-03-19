@@ -99,12 +99,12 @@ describe('mutation', () => {
             username: 'John@a.com'
         };
         const createUser = `
-      mutation userCreate {
-        saveUser ( obj: UserInput ) {
-          id
-        }
-      }
-`;
+          mutation userCreate ($obj: UserInput!) {
+            saveUser ( obj: $obj ) {
+              id
+            }
+          }
+        `;
 
         const deleteUser = gql `
             mutation delete ($id: ID!) {
