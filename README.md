@@ -37,15 +37,14 @@ Graphiql is available on `graphiqlPath` path. (Default: `/graphiql`);
 Access the Graphiql interface to view your GraphQL model onthe Docs section. 
 Build the GraphQL queries and use them in your application.
 
-The following actions are supported: 
-###  Queries
-* Single entity by ID
-* Multiple entities with pagination (first, after)
-* Relationship between entities (belongs to, has many)
-
-### Mutations
-* Save single object
-* Delete single object 
+geoPoint objects are supported as follow: 
+```
+{"newNote": 
+  {
+    "location": {"lat":40.77492964101182, "lng":-73.90950187151662}
+  }
+}
+```
 
 ## Roadmap
 [See here the Github project](https://github.com/Tallyb/loopback-graphql/projects/1)

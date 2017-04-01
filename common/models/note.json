@@ -1,52 +1,51 @@
 {
-  "name": "Note",
-  "properties": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "content": {
-      "type": "Content"
-    },
-    "Genre": {
-      "type": "string",
-      "required": false,
-      "enum": [
-        "HUMOR",
-        "SCI_FI",
-        "HORROR",
-        "ROMANCE",
-        "NON_FICTION"
-      ]
-    }
-  },
-  "validations": [],
-  "relations": {
-    "author": {
-      "type": "belongsTo",
-      "model": "Author",
-      "foreignKey": ""
-    }
-  },
-  "acls": [],
-  "methods": {
-    "prototype.vote": {
-      "accepts": [
-        {
-          "arg": "rank",
-          "type": "number",
-          "required": true,
-          "description": ""
+    "name": "Note",
+    "properties": {
+        "title": {
+            "type": "string",
+            "required": true
+        },
+        "content": {
+            "type": "Content"
+        },
+        "Genre": {
+            "type": "string",
+            "required": false,
+            "enum": [
+                "HUMOR",
+                "SCI_FI",
+                "HORROR",
+                "ROMANCE",
+                "NON_FICTION"
+            ]
+        },
+        "location": {
+            "type": "GeoPoint"
         }
-      ],
-      "returns": [],
-      "description": " vote  a note",
-      "http": [
-        {
-          "path": "vote",
-          "verb": "post"
+    },
+    "validations": [],
+    "relations": {
+        "author": {
+            "type": "belongsTo",
+            "model": "Author",
+            "foreignKey": ""
         }
-      ]
+    },
+    "acls": [],
+    "methods": {
+        "prototype.vote": {
+            "accepts": [{
+                "arg": "rank",
+                "type": "number",
+                "required": true,
+                "description": ""
+            }],
+            "returns": [],
+            "description": " vote  a note",
+            "http": [{
+                "path": "vote",
+                "verb": "post"
+            }]
+        }
     }
-  }
 }
