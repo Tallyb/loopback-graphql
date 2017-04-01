@@ -10,12 +10,11 @@
 *.swp
 *.tgz
 *.xml
+.vscoode
 .DS_Store
 .idea
-.project
-.strong-pm
 coverage
 node_modules
 npm-debug.log
 out
-data.json
+data

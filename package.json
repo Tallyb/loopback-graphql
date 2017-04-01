@@ -1,93 +1,93 @@
 {
-  "name": "loopback-graphql",
-  "version": "0.11.0",
-  "description": "Add Apollo Server or GraphQL queries on your Loopback server",
-  "main": "src/index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "commit": "git-cz",
-    "eslint": "eslint .",
-    "lint": "npm run eslint",
-    "data": "cpx ./data/data.json ./",
-    "pretest": "npm run eslint && npm run data",
-    "test": "npm run data && mocha --reporter spec --timeout 10000",
-    "server": "node server/server.js",
-    "nodemon": "nodemon server/server.js",
-    "debug": "nodemon server/server.js --debug-brk=5858",
-    "mocha:coverage": "istanbul cover --root . --include-all-sources --dir ./coverage --report text --report text-summary --report lcov --print none  _mocha -- test/**/*.spec.js --reporter spec --timeout 10000",
-    "test:watch": "mocha -R nyan -w --timeout 10000",
-    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
-    "release": "standard-version",
-    "publish:patch": "npm run test && npm version patch && npm run changelog"
-  },
-  "repository": {
-    "url": "git+https://github.com/tallyb/loopback-graphql.git",
-    "type": "git"
-  },
-  "keywords": [
-    "Loopback",
-    "GraphQL",
-    "Apollo",
-    "Express",
-    "Javascript",
-    "REST",
-    "APIs"
-  ],
-  "author": "Tally Barak <tally.barak@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/tallyb/loopback-graphql/issues"
-  },
-  "homepage": "https://github.com/tallyb/loopback-graphql#readme",
-  "dependencies": {
-    "body-parser": "^1.15.2",
-    "graphql": "^0.9.1",
-    "graphql-date": "^1.0.2",
-    "graphql-geojson": "^1.0.0",
-    "graphql-server-express": "^0.6.0",
-    "graphql-tools": "^0.11.0",
-    "graphql-type-json": "^0.1.4",
-    "lodash": "^4.16.3",
-    "promisify-node": "^0.4.0"
-  },
-  "devDependencies": {
-    "apollo-client": "^1.0.0-rc.2",
-    "babel-eslint": "^7.0.0",
-    "bluebird": "^3.4.6",
-    "chai": "^3.5.0",
-    "chai-http": "^3.0.0",
-    "commitizen": "^2.8.6",
-    "compression": "^1.0.3",
-    "conventional-changelog": "^1.1.0",
-    "conventional-changelog-cli": "^1.2.0",
-    "cors": "^2.5.2",
-    "cpx": "^1.5.0",
-    "cpy-cli": "^1.0.1",
-    "cz-conventional-changelog": "^2.0.0",
-    "eslint": "^3.7.1",
-    "eslint-plugin-nodeca": "^1.0.3",
-    "ghooks": "^2.0.0",
-    "graphql-tag": "^2.0.0",
-    "helmet": "^3.1.0",
-    "istanbul": "^0.4.5",
-    "loopback": "^3.1.1",
-    "loopback-boot": "^2.6.5",
-    "loopback-datasource-juggler": "^3.1.1",
-    "loopback-component-explorer": "^4.0.0",
-    "mocha": "^3.1.0",
-    "nodemon": "^1.10.2",
-    "nsp": "^2.1.0",
-    "serve-favicon": "^2.0.1",
-    "sinon": "^2.0.0",
-    "standard-version": "^4.0.0",
-    "strong-error-handler": "^2.0.0",
-    "validate-commit-msg": "^2.8.0"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
+    "name": "loopback-graphql",
+    "version": "0.11.0",
+    "description": "Add Apollo Server or GraphQL queries on your Loopback server",
+    "main": "src/index.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "commit": "git-cz",
+        "eslint": "eslint .",
+        "lint": "npm run eslint",
+        "data": "cpx ./test/data.json ./data",
+        "pretest": "npm run eslint && npm run data",
+        "test": "npm run data && mocha --reporter spec --timeout 10000",
+        "server": "node server/server.js",
+        "nodemon": "nodemon server/server.js",
+        "debug": "nodemon server/server.js --debug-brk=5858",
+        "mocha:coverage": "istanbul cover --root . --include-all-sources --dir ./coverage --report text --report text-summary --report lcov --print none  _mocha -- test/**/*.spec.js --reporter spec --timeout 10000",
+        "test:watch": "mocha -R nyan -w --timeout 10000",
+        "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+        "release": "standard-version",
+        "publish:patch": "npm run test && npm version patch && npm run changelog"
+    },
+    "repository": {
+        "url": "git+https://github.com/tallyb/loopback-graphql.git",
+        "type": "git"
+    },
+    "keywords": [
+        "Loopback",
+        "GraphQL",
+        "Apollo",
+        "Express",
+        "Javascript",
+        "REST",
+        "APIs"
+    ],
+    "author": "Tally Barak <tally.barak@gmail.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/tallyb/loopback-graphql/issues"
+    },
+    "homepage": "https://github.com/tallyb/loopback-graphql#readme",
+    "dependencies": {
+        "body-parser": "^1.15.2",
+        "graphql": "^0.9.1",
+        "graphql-date": "^1.0.2",
+        "graphql-geojson": "^1.0.0",
+        "graphql-server-express": "^0.6.0",
+        "graphql-tools": "^0.11.0",
+        "graphql-type-json": "^0.1.4",
+        "lodash": "^4.16.3",
+        "promisify-node": "^0.4.0"
+    },
+    "devDependencies": {
+        "apollo-client": "^1.0.0-rc.2",
+        "babel-eslint": "^7.0.0",
+        "bluebird": "^3.4.6",
+        "chai": "^3.5.0",
+        "chai-http": "^3.0.0",
+        "commitizen": "^2.8.6",
+        "compression": "^1.0.3",
+        "conventional-changelog": "^1.1.0",
+        "conventional-changelog-cli": "^1.2.0",
+        "cors": "^2.5.2",
+        "cpx": "^1.5.0",
+        "cpy-cli": "^1.0.1",
+        "cz-conventional-changelog": "^2.0.0",
+        "eslint": "^3.7.1",
+        "eslint-plugin-nodeca": "^1.0.3",
+        "ghooks": "^2.0.0",
+        "graphql-tag": "^2.0.0",
+        "helmet": "^3.1.0",
+        "istanbul": "^0.4.5",
+        "loopback": "^3.1.1",
+        "loopback-boot": "^2.6.5",
+        "loopback-datasource-juggler": "^3.1.1",
+        "loopback-component-explorer": "^4.0.0",
+        "mocha": "^3.1.0",
+        "nodemon": "^1.10.2",
+        "nsp": "^2.1.0",
+        "serve-favicon": "^2.0.1",
+        "sinon": "^2.0.0",
+        "standard-version": "^4.0.0",
+        "strong-error-handler": "^2.0.0",
+        "validate-commit-msg": "^2.8.0"
+    },
+    "config": {
+        "commitizen": {
+            "path": "node_modules/cz-conventional-changelog"
+        }
     }
-  }
 }
