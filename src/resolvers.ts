@@ -52,7 +52,7 @@ function rootResolver(model) {
   };
 }
 
-function connectionResolver(model, obj, args, context) {
+function connectionResolver(model: any) {
   return {
     [utils.connectionTypeName(model)]: {
       totalCount: (obj, args, context) => {
@@ -92,7 +92,7 @@ function connectionResolver(model, obj, args, context) {
 }
 
 function remoteResolver(model) {
-  let Mutation = {};
+  let mutation = {};
   //model.sharedClass.methods
   if (model.sharedClass && model.sharedClass.methods) {
     model.sharedClass._methods.map(function (method) {
@@ -103,7 +103,7 @@ function remoteResolver(model) {
             acceptingParams.push(param.arg);
           }
         });
-        Mutation[`${utils.methodName(method, model)}`] = (context, args) => {
+        mutation[`${utils.methodName(method, model)}`] = (context, args) => {
           let params = [];
           _.each(method.accepts, (el, i) => {
             params[i] = args[el.arg];
@@ -114,7 +114,7 @@ function remoteResolver(model) {
     });
   }
   return {
-    Mutation: Mutation,
+    Mutation: mutation,
   };
 }
 
@@ -124,8 +124,8 @@ function remoteResolver(model) {
  * @param {Object} models: All loopback Models
  * @returns {Object} resolvers functions for all models - queries and mutations
  */
-export default function Resolvers(models) {
-  return _.reduce(models, (obj, model) => {
+export function resolvers(models: any[]) {
+  return _.reduce(models, (obj: any, model: any) => {
     if (model.shared) {
       return _.merge(
         obj,

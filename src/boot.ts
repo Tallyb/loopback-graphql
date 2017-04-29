@@ -2,15 +2,15 @@ import { graphqlExpress, graphiqlExpress } from 'graphql-server-express';
 import { makeExecutableSchema } from 'graphql-tools';
 import * as bodyParser from 'body-parser';
 
-import abstractTypes from './ast';
-import resolvers from './resolvers';
-import typeDefs from './typedefs';
+import { abstractTypes } from './ast';
+import { resolvers } from './resolvers';
+import { generateTypeDefs } from './typedefs';
 
 export default function (app, options) {
   const models = app.models();
   let types = abstractTypes(models);
   let schema = makeExecutableSchema({
-    typeDefs: typeDefs(types),
+    typeDefs: generateTypeDefs(types),
     resolvers: resolvers(models),
     resolverValidationOptions: {
       requireResolversForAllFields: false,

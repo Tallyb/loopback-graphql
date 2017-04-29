@@ -41,7 +41,7 @@ function connectionTypeName(model) {
   return `${model.modelName}Connection`;
 }
 
-function edgeTypeName(model) {
+function edgeTypeName(model: any) {
   return `${model.modelName}Edge`; // e.g. UserEdge
 }
 
@@ -49,15 +49,15 @@ function singularModelName(model) {
   return model.modelName;
 }
 
-function pluralModelName(model) {
+function pluralModelName(model: any) {
   return 'all' + _.upperFirst(model.pluralModelName);
 }
 
-function sharedRelations(model) {
+function sharedRelations(model: any) {
   return _.pickBy(model.relations, rel => rel.modelTo && rel.modelTo.shared);
 }
 
-function sharedModels(models) {
+function sharedModels(models: any[]) {
   return _.filter(models, model => {
     return model.shared;
   });
@@ -66,7 +66,7 @@ function sharedModels(models) {
 function methodName(method, model) {
   return model.modelName + _.upperFirst(method.name);
 }
-export default {
+export {
   PAGINATION,
   getId,
   idToCursor,

@@ -4,6 +4,9 @@ import * as utils from './utils.js';
 function buildSelector(model, args) {
   let selector = {
     where: args.where || {},
+    skip: undefined,
+    limit: undefined,
+    order: undefined,
   };
   const begin = utils.getId(args.after);
   const end = utils.getId(args.before);
@@ -45,11 +48,14 @@ function getList(model, obj, args) {
   return model.find(buildSelector(model, args));
 }
 
-function findAll(model, obj, args, context) {
+function findAll(model: any, obj: any, args: any, context: any) {
   const response = {
     args: args,
+    count: undefined,
+    first: undefined,
+    list: undefined,
   };
-  return getCount(model, obj, args)
+  return getCount(model, obj, args, undefined)
     .then(count => {
       response.count = count;
       return getFirst(model, obj, args);
@@ -75,7 +81,7 @@ function findRelated(rel, obj, args, context) {
 
 }
 
-function resolveConnection(model, obj, args, context) {
+function resolveConnection(model) {
   return {
     [utils.connectionTypeName(model)]: {
       totalCount: (obj, args, context) => {
@@ -114,7 +120,7 @@ function resolveConnection(model, obj, args, context) {
   };
 }
 
-export default {
+export {
   findAll,
   findOne,
   findRelated,

@@ -1,1 +1,2 @@
-export default function abstractTypes(models: any): {};
+import { TypesHash } from './interfaces';
+export declare function abstractTypes(models: any[]): TypesHash;

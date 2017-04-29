@@ -1,6 +1,15 @@
 import * as _ from 'lodash';
-import * as utils from './utils';
-import * as execution from './execution';
+import {
+  connectionTypeName,
+  singularModelName,
+  pluralModelName,
+  methodName,
+  edgeTypeName,
+  sharedRelations,
+  idToCursor,
+} from './utils';
+import { findRelated, findAll, findOne, resolveConnection } from './execution';
+import { Property, TypesHash } from './interfaces';
 
 /*** Loopback Types - GraphQL types
         any - JSON
@@ -15,7 +24,7 @@ import * as execution from './execution';
         String - string
     ***/
 
-let types = {};
+let types: TypesHash = {};
 
 const exchangeTypes = {
   'any': 'JSON',
@@ -44,17 +53,17 @@ const SCALARS = {
 const PAGINATION = 'where: JSON, after: String, first: Int, before: String, last: Int';
 const IDPARAMS = 'id: ID!';
 
-function getScalar(type) {
+function getScalar(type: string) {
   return SCALARS[type.toLowerCase().trim()];
 }
 
-function toTypes(union) {
+function toTypes(union: string[]) {
   return _.map(union, type => {
     return getScalar(type) ? getScalar(type) : type;
   });
 }
 
-function mapProperty(model, property, modelName, propertyName) {
+function mapProperty(model: any, property: any, modelName: string, propertyName: string) {
   if (property.deprecated) {
     return;
   }
@@ -118,14 +127,14 @@ function mapProperty(model, property, modelName, propertyName) {
   }
 }
 
-function mapRelation(rel, modelName, relName) {
+function mapRelation(rel: any, modelName: string, relName: string) {
   types[modelName].fields[relName] = {
     relation: true,
     embed: rel.embed,
-    gqlType: utils.connectionTypeName(rel.modelTo),
+    gqlType: connectionTypeName(rel.modelTo),
     args: PAGINATION,
     resolver: (obj, args, context) => {
-      return execution.findRelated(rel, obj, args, context);
+      return findRelated(rel, obj, args, context);
     },
   };
 }
@@ -138,9 +147,9 @@ function generateReturns(name, props) {
     let args;
     args = _.map(props, prop => {
         if (_.isArray(prop.type)) {
-            return `${prop.arg}: [${utils.toType(prop.type[0])}]${prop.required ? '!' : ''}`;
-        } else if (utils.toType(prop.type)) {
-            return `${prop.arg}: ${utils.toType(prop.type)}${prop.required ? '!' : ''}`;
+            return `${prop.arg}: [${toType(prop.type[0])}]${prop.required ? '!' : ''}`;
+        } else if (toType(prop.type)) {
+            return `${prop.arg}: ${toType(prop.type)}${prop.required ? '!' : ''}`;
         }
         return '';
     }).join(' \n ');
@@ -153,16 +162,16 @@ function generateAccepts(name, props) {
         if (_.isArray(prop.type)) {
             propType = prop.type[0];
         }
-        return propType ? `${prop.arg}: [${utils.toType(prop.type[0])}]${prop.required ? '!' : ''}` : '';
+        return propType ? `${prop.arg}: [${toType(prop.type[0])}]${prop.required ? '!' : ''}` : '';
     }).join(' \n ');
     return ret ? `(${ret})` : '';
 
 }
 */
 
-function addRemoteHooks(model) {
+function addRemoteHooks(model: any) {
 
-  _.map(model.sharedClass._methods, method => {
+  _.map(model.sharedClass._methods, (method: any) => {
     if (method.accessType !== 'READ' && method.http.path) {
       let acceptingParams = '',
         returnType = 'JSON';
@@ -191,7 +200,7 @@ function addRemoteHooks(model) {
           }
         }
       }
-      types.Mutation.fields[`${utils.methodName(method, model)}`] = {
+      types.Mutation.fields[`${methodName(method, model)}`] = {
         relation: true,
         args: acceptingParams,
         gqlType: `${exchangeTypes[returnType] || returnType}`,
@@ -201,37 +210,37 @@ function addRemoteHooks(model) {
 }
 
 function mapRoot(model) {
-  types.Query.fields[utils.singularModelName(model)] = {
+  types.Query.fields[singularModelName(model)] = {
     relation: true,
     args: IDPARAMS,
     root: true,
-    gqlType: utils.singularModelName(model),
+    gqlType: singularModelName(model),
     resolver: (obj, args, context) => {
-      execution.findOne(model, obj, args, context);
+      findOne(model, obj, args, context);
     },
   };
 
-  types.Query.fields[utils.pluralModelName(model)] = {
+  types.Query.fields[pluralModelName(model)] = {
     relation: true,
     root: true,
     args: PAGINATION,
-    gqlType: utils.connectionTypeName(model),
+    gqlType: connectionTypeName(model),
     resolver: (obj, args, context) => {
-      execution.findAll(model, obj, args, context);
+      findAll(model, obj, args, context);
     },
   };
 
-  types.Mutation.fields[`save${utils.singularModelName(model)}`] = {
+  types.Mutation.fields[`save${singularModelName(model)}`] = {
     relation: true,
-    args: `obj: ${utils.singularModelName(model)}Input!`,
-    gqlType: utils.singularModelName(model),
+    args: `obj: ${singularModelName(model)}Input!`,
+    gqlType: singularModelName(model),
     resolver: (context, args) => model.upsert(args.obj),
   };
 
-  types.Mutation.fields[`delete${utils.singularModelName(model)}`] = {
+  types.Mutation.fields[`delete${singularModelName(model)}`] = {
     relation: true,
     args: IDPARAMS,
-    gqlType: ` ${utils.singularModelName(model)}`,
+    gqlType: ` ${singularModelName(model)}`,
     resolver: (context, args) => {
       return model.findById(args.id)
         .then(instance => instance.destroy());
@@ -239,13 +248,13 @@ function mapRoot(model) {
   };
   // _.each(model.sharedClass.methods, method => {
   //     if (method.accessType !== 'READ' && method.http.path) {
-  //         let methodName = utils.methodName(method, model);
+  //         let methodName = methodName(method, model);
   //         types.Mutation.fields[methodName] = {
   //             gqlType: `${generateReturns(method.name, method.returns)}`,
   //             args: `${generateAccepts(method.name, method.accepts)}`
   //         }
 
-  //         return `${utils.methodName(method)}
+  //         return `${methodName(method)}
   //                     ${generateAccepts(method.name, method.accepts)}
 
   //                 : JSON`;
@@ -257,7 +266,7 @@ function mapRoot(model) {
 }
 
 function mapConnection(model) {
-  types[utils.connectionTypeName(model)] = {
+  types[connectionTypeName(model)] = {
     connection: true,
     category: 'TYPE',
     fields: {
@@ -267,11 +276,11 @@ function mapConnection(model) {
       },
       edges: {
         list: true,
-        gqlType: utils.edgeTypeName(model),
+        gqlType: edgeTypeName(model),
         resolver: (obj, args, context) => {
           return _.map(obj.list, node => {
             return {
-              cursor: utils.idToCursor(node[model.getIdName()]),
+              cursor: idToCursor(node[model.getIdName()]),
               node: node,
             };
           });
@@ -285,7 +294,7 @@ function mapConnection(model) {
         },
       },
       [model.pluralModelName]: {
-        gqlType: utils.singularModelName(model),
+        gqlType: singularModelName(model),
         list: true,
         resolver: (obj, args, context) => {
           return obj.list;
@@ -293,14 +302,14 @@ function mapConnection(model) {
       },
     },
     resolver: (obj, args, context) => {
-      return execution.resolveConnection(model, obj, args, context);
+      return resolveConnection(model);
     },
   };
-  types[utils.edgeTypeName(model)] = {
+  types[edgeTypeName(model)] = {
     category: 'TYPE',
     fields: {
       node: {
-        gqlType: utils.singularModelName(model),
+        gqlType: singularModelName(model),
         required: true,
       },
       cursor: {
@@ -311,7 +320,7 @@ function mapConnection(model) {
   };
 
 }
-export default function abstractTypes(models) {
+export function abstractTypes(models: any[]): TypesHash {
   //building all models types & relationships
   types.pageInfo = {
     category: 'TYPE',
@@ -345,18 +354,18 @@ export default function abstractTypes(models) {
     if (model.shared) {
       mapRoot(model);
     }
-    types[utils.singularModelName(model)] = {
+    types[singularModelName(model)] = {
       category: 'TYPE',
       input: true,
       fields: {},
     };
     _.forEach(model.definition.properties, (property, key) => {
-      mapProperty(model, property, utils.singularModelName(model), key);
+      mapProperty(model, property, singularModelName(model), key);
     });
 
     mapConnection(model);
-    _.forEach(utils.sharedRelations(model), rel => {
-      mapRelation(rel, utils.singularModelName(model), rel.name);
+    _.forEach(sharedRelations(model), rel => {
+      mapRelation(rel, singularModelName(model), rel.name);
       mapConnection(rel.modelTo);
     });
   });

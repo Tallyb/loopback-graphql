@@ -1,5 +1,1 @@
-export default function Resolvers(models: any): {
-    JSON: any;
-    Date: any;
-    GeoPoint: any;
-};
+export declare function resolvers(models: any[]): any;
