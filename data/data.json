@@ -19,10 +19,10 @@
     "User": {
       "1": "{\"username\":\"tally\",\"password\":\"$2a$10$b/Ok3FC3HYCbF2LlLXpk4OSsrz5EixJfkfJittHp8eEtPQvUJZiEa\",\"email\":\"tally@a.com\",\"id\":1}",
       "2": "{\"username\":\"naveenmeher\",\"password\":\"$2a$10$tT5y2RfVUdaZvt6iVtDoUeub9WqoqLk40WF5rq4QxQFLJ4bZzzgrO\",\"email\":\"naveenmeher07@gmail.com\",\"id\":2}",
-      "3": "{\"username\":\"John@a.com\",\"password\":\"$2a$10$kR/huR41UPfp38nF14b33eM3vSIkyACnvalMNhO1EdLLskdMcCwLe\",\"email\":\"John@a.com\",\"id\":3}"
+      "3": "{\"username\":\"John@a.com\",\"password\":\"$2a$10$3IW3g1oNxKNdZhmEQFehn.tGgwP8Y561xhCWjhh5NvblKs0et0D5q\",\"email\":\"John@a.com\",\"id\":3}"
     },
     "AccessToken": {
-      "jftrHU9XPro67fHeivPXdWJIiECeJiZnxhFIcH4JjPBme0QvD0wJJH48eAxT3oaL": "{\"id\":\"jftrHU9XPro67fHeivPXdWJIiECeJiZnxhFIcH4JjPBme0QvD0wJJH48eAxT3oaL\",\"ttl\":1209600,\"created\":\"2017-04-29T17:41:12.664Z\",\"userId\":2}"
+      "FifIqsgD3dh91JhpcsojFLSGYcDKAAB5jEQskr6HvLer0BHqBVOvZUcadxM0XtEh": "{\"id\":\"FifIqsgD3dh91JhpcsojFLSGYcDKAAB5jEQskr6HvLer0BHqBVOvZUcadxM0XtEh\",\"ttl\":1209600,\"created\":\"2017-04-29T18:19:49.525Z\",\"userId\":2}"
     },
     "ACL": {},
     "RoleMapping": {},

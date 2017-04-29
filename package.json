@@ -12,7 +12,7 @@
         "compile": "tsc",
         "typings": "typings install",
         "pretest": "npm run lint && npm run data && npm run compile",
-        "test": "npm run testonly --",
+        "test": "npm run testonly",
         "lint": "tslint ./src/**.ts",
         "watch": "tsc -w",
         "testonly": "mocha --reporter spec --full-trace ./test/**.spec.js",
