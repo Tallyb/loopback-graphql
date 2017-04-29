@@ -1,1 +1,1 @@
-export default function (app: any, options: any): void;
+export declare function boot(app: any, options: any): void;

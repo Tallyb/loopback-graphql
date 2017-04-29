@@ -1,12 +1,12 @@
 {
   "ids": {
-    "User": 3,
-    "AccessToken": 1,
+    "User": 4,
+    "AccessToken": 2,
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Note": 7,
-    "Author": 3,
+    "Note": 8,
+    "Author": 4,
     "Reader": 2,
     "Book": 2,
     "Customer": 8,
@@ -18,9 +18,11 @@
   "models": {
     "User": {
       "1": "{\"username\":\"tally\",\"password\":\"$2a$10$b/Ok3FC3HYCbF2LlLXpk4OSsrz5EixJfkfJittHp8eEtPQvUJZiEa\",\"email\":\"tally@a.com\",\"id\":1}",
-      "2": "{\"username\":\"naveenmeher\",\"password\":\"$2a$10$tT5y2RfVUdaZvt6iVtDoUeub9WqoqLk40WF5rq4QxQFLJ4bZzzgrO\",\"email\":\"naveenmeher07@gmail.com\",\"id\":2}"
+      "2": "{\"username\":\"naveenmeher\",\"password\":\"$2a$10$tT5y2RfVUdaZvt6iVtDoUeub9WqoqLk40WF5rq4QxQFLJ4bZzzgrO\",\"email\":\"naveenmeher07@gmail.com\",\"id\":2}",
+      "3": "{\"username\":\"John@a.com\",\"password\":\"$2a$10$Zuv/97x5ST0cd0p0E5LOMOm8miXoIH9ibGBD4CWY5H8OwrtcSkJ8y\",\"email\":\"John@a.com\",\"id\":3}"
     },
     "AccessToken": {
+      "AS9UCKP1tsKio6LPNENtFj3m7b18qI0UbySCxu5Zz1gOkOAkLycVRgsHHlDxwiuC": "{\"id\":\"AS9UCKP1tsKio6LPNENtFj3m7b18qI0UbySCxu5Zz1gOkOAkLycVRgsHHlDxwiuC\",\"ttl\":1209600,\"created\":\"2017-04-29T17:10:15.552Z\",\"userId\":2}"
     },
     "ACL": {},
     "RoleMapping": {},
@@ -31,7 +33,8 @@
       "3": "{\"title\":\"A room with a View\",\"authorId\":3,\"id\":3}",
       "4": "{\"title\":\"The Bluest Eye\",\"authorId\":5,\"id\":4}",
       "5": "{\"title\":\"Of Mice and Men\",\"Genre\":\"HUMOR\",\"authorId\":4,\"id\":5}",
-      "6": "{\"title\":\"Love and Prejudice\",\"authorId\":8,\"Genre\":\"ROMANCE\",\"id\":6}"
+      "6": "{\"title\":\"Love and Prejudice\",\"authorId\":8,\"Genre\":\"ROMANCE\",\"id\":6}",
+      "7": "{\"title\":\"Heckelbery Finn\",\"content\":{\"body\":\"Heckelbery Finn\",\"footer\":\"The end\"},\"id\":7}"
     },
     "Author": {
       "1": "{\"first_name\":\"Jane\",\"last_name\":\"Austin\",\"birth_date\":\"1883-10-15T00:00:00.000Z\",\"id\":8,\"friendIds\":[5,7]}"

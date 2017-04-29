@@ -6,7 +6,7 @@ import { abstractTypes } from './ast';
 import { resolvers } from './resolvers';
 import { generateTypeDefs } from './typedefs';
 
-export default function (app, options) {
+export function boot (app, options) {
   const models = app.models();
   let types = abstractTypes(models);
   let schema = makeExecutableSchema({
