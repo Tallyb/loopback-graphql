@@ -11,7 +11,7 @@
         "clean": "rimraf lib",
         "compile": "tsc",
         "typings": "typings install",
-        "pretest": "npmr run lint && npm run data && npm run compile",
+        "pretest": "npm run lint && npm run data && npm run compile",
         "test": "npm run testonly --",
         "lint": "tslint ./src/**.ts",
         "watch": "tsc -w",
