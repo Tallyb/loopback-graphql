@@ -109,6 +109,7 @@
         "source-map-support": "^0.4.7",
         "standard-version": "^4.0.0",
         "strong-error-handler": "^2.0.0",
+        "ts-node": "^3.0.2",
         "tslint": "^4.2.0",
         "typescript": "^2.3.1",
         "validate-commit-msg": "^2.8.0"
