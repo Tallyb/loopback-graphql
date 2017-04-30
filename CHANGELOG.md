@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.12.1"></a>
+## [0.12.1](https://github.com/tallyb/loopback-graphql/compare/v0.12.0...v0.12.1) (2017-04-30)
+
+
+### Bug Fixes
+
+* **github:** Remove github template ([353aadf](https://github.com/tallyb/loopback-graphql/commit/353aadf))
+* **package:** update graphql-server-express to version 0.7.0 ([#49](https://github.com/tallyb/loopback-graphql/issues/49)) ([36cf7b4](https://github.com/tallyb/loopback-graphql/commit/36cf7b4))
+
+
+
 <a name="0.12.0"></a>
 # [0.12.0](https://github.com/tallyb/loopback-graphql/compare/v0.11.0...v0.12.0) (2017-04-01)
 
