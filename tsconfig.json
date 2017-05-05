@@ -3,7 +3,7 @@
         "target": "es5",
         "module": "commonjs",
         "moduleResolution": "node",
-        "sourceMap": true,
+        "sourceMap": false,
         "declaration": true,
         "noImplicitAny": false,
         "allowSyntheticDefaultImports": false,
@@ -13,10 +13,11 @@
         "types": [
             "@types/node"
         ],
-        "rootDir": "./src",
-        "outDir": "./lib",
-        "sourceRoot": "./lib/map"
+        "outDir": "./lib"
     },
+    "include": [
+        "src/**/*.ts"
+    ],
     "exclude": [
         "node_modules",
         "dist",

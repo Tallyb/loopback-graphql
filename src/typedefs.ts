@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { SchemaType, Field, TypesHash } from './interfaces';
+import { ISchemaType, IField, ITypesHash } from './interfaces';
 
 const scalarTypes = `
         scalar Date
@@ -11,20 +11,20 @@ function args(args: string): string {
   return args ? `(${args})` : '';
 }
 
-function generateInputField(field: Field, name: string): string {
+function generateInputField(field: IField, name: string): string {
   return `
         ${name} : ${field.list ? '[' : ''}
         ${field.gqlType}${field.scalar ? '' : 'Input'}${field.required ? '!' : ''} ${field.list ? ']' : ''}`;
 }
 
-function generateOutputField(field: Field, name: string): string {
+function generateOutputField(field: IField, name: string): string {
   return `${name} ${args(field.args)} : ${field.list ? '[' : ''}${field.gqlType}${field.required ? '!' : ''} ${field.list ? ']' : ''}`;
 }
 
-export function generateTypeDefs(types: TypesHash) {
+export function generateTypeDefs(types: ITypesHash) {
   const categories = {
-    TYPE: (type: SchemaType, name: string) => {
-      let output = _.reduce(type.fields, (result: string, field: Field, fieldName: string): string => {
+    TYPE: (type: ISchemaType, name: string) => {
+      let output = _.reduce(type.fields, (result: string, field: IField, fieldName: string): string => {
         return result + generateOutputField(field, fieldName) + ' \n ';
       }, '');
 
@@ -33,7 +33,7 @@ export function generateTypeDefs(types: TypesHash) {
                     ${output}
                 }`;
       if (type.input) {
-        let input = _.reduce(type.fields, (accumulator: string, field: Field, fieldName: string) => {
+        let input = _.reduce(type.fields, (accumulator: string, field: IField, fieldName: string) => {
           return !field.relation ? accumulator + generateInputField(field, fieldName) + ' \n ' : accumulator;
         }, '');
         result += `input ${name}Input {
@@ -42,15 +42,15 @@ export function generateTypeDefs(types: TypesHash) {
       }
       return result;
     },
-    UNION: (type: SchemaType, name: string) => {
+    UNION: (type: ISchemaType, name: string) => {
       return `union ${name} = ${type.values.join(' | ')}`;
     },
-    ENUM: (type: SchemaType, name: string) => {
+    ENUM: (type: ISchemaType, name: string) => {
       return `enum ${name} {${type.values.join(' ')}}`;
     },
   };
 
-  return _.reduce(types, (result: string, type: SchemaType, name: string) => {
+  return _.reduce(types, (result: string, type: ISchemaType, name: string) => {
     return result + categories[type.category](type, name);
   }, scalarTypes);
 }

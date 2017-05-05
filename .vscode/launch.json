@@ -19,11 +19,12 @@
             "name": "Launch",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceRoot}/server/server.js",
+            "program": "${workspaceRoot}/server/server.ts",
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
             "preLaunchTask": null,
+            "outFiles": ["lib"],
             "runtimeExecutable": null,
             "runtimeArgs": [
                 "--nolazy"
@@ -32,7 +33,7 @@
                 "NODE_ENV": "development"
             },
             "console": "internalConsole",
-            "sourceMaps": false
+            "sourceMaps": true
         },
         {
             "name": "Attach",
@@ -42,7 +43,7 @@
             "address": "localhost",
             "restart": false,
             "sourceMaps": false,
-            "outDir": null,
+            "outFiles": ["lib"],
             "localRoot": "${workspaceRoot}",
             "remoteRoot": null
         },
@@ -53,7 +54,7 @@
             "processId": "${command:PickProcess}",
             "port": 5858,
             "sourceMaps": false,
-            "outDir": null
+            "outFiles": ["lib"]
         }
     ]
 }

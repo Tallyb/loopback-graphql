@@ -6,7 +6,7 @@ import { abstractTypes } from './ast';
 import { resolvers } from './resolvers';
 import { generateTypeDefs } from './typedefs';
 
-export function boot (app, options) {
+export function boot(app, options) {
   const models = app.models();
   let types = abstractTypes(models);
   let schema = makeExecutableSchema({
@@ -29,4 +29,4 @@ export function boot (app, options) {
   app.use(graphiqlPath, graphiqlExpress({
     endpointURL: path,
   }));
-};
+}

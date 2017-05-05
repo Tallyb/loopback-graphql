@@ -1,6 +1,6 @@
 //export declare function Model(arg?: { hooks?: {}, remotes?: {} }): any;
 
-export interface Property {
+export interface IProperty {
   type: any;
   deprecated?: Boolean;
   required?: Boolean;
@@ -8,7 +8,7 @@ export interface Property {
   enum?: any;
 }
 
-export interface Field {
+export interface IField {
   list?: Boolean;
   scalar?: Boolean;
   required?: Boolean;
@@ -17,13 +17,13 @@ export interface Field {
   args?: any;
 }
 
-export interface TypesHash {
+export interface ITypesHash {
   [id: string]: any;
-};
+}
 
-export interface SchemaType {
+export interface ISchemaType {
   category: string;
-  fields: Field[];
+  fields: IField[];
   input: any;
   values: any;
-};
+}

@@ -1,2 +1,2 @@
-import { TypesHash } from './interfaces';
-export declare function abstractTypes(models: any[]): TypesHash;
+import { ITypesHash } from './interfaces';
+export declare function abstractTypes(models: any[]): ITypesHash;

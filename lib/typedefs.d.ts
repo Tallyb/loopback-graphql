@@ -1,2 +1,2 @@
-import { TypesHash } from './interfaces';
-export declare function generateTypeDefs(types: TypesHash): string;
+import { ITypesHash } from './interfaces';
+export declare function generateTypeDefs(types: ITypesHash): string;

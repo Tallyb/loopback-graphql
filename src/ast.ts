@@ -9,7 +9,7 @@ import {
   idToCursor,
 } from './utils';
 import { findRelated, findAll, findOne, resolveConnection } from './execution';
-import { Property, TypesHash } from './interfaces';
+import { IProperty, ITypesHash } from './interfaces';
 
 /*** Loopback Types - GraphQL types
         any - JSON
@@ -24,7 +24,7 @@ import { Property, TypesHash } from './interfaces';
         String - string
     ***/
 
-let types: TypesHash = {};
+let types: ITypesHash = {};
 
 const exchangeTypes = {
   'any': 'JSON',
@@ -320,7 +320,7 @@ function mapConnection(model) {
   };
 
 }
-export function abstractTypes(models: any[]): TypesHash {
+export function abstractTypes(models: any[]): ITypesHash {
   //building all models types & relationships
   types.pageInfo = {
     category: 'TYPE',
