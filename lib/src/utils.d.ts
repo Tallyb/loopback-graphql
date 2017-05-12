@@ -1,0 +1,12 @@
+declare const PAGINATION = "(where: JSON, after: String, first: Int, before: String, last: Int)";
+declare function idToCursor(id: any): string;
+declare function cursorToId(cursor: any): string;
+declare function getId(cursor: any): string;
+declare function connectionTypeName(model: any): string;
+declare function edgeTypeName(model: any): string;
+declare function singularModelName(model: any): any;
+declare function pluralModelName(model: any): string;
+declare function sharedRelations(model: any): {};
+declare function sharedModels(models: any[]): any[];
+declare function methodName(method: any, model: any): string;
+export { PAGINATION, getId, idToCursor, cursorToId, connectionTypeName, edgeTypeName, singularModelName, methodName, pluralModelName, sharedRelations, sharedModels };
