@@ -4,14 +4,17 @@
         "module": "commonjs",
         "moduleResolution": "node",
         "sourceMap": false,
-        "declaration": true,
         "noImplicitAny": false,
         "allowSyntheticDefaultImports": false,
         "pretty": true,
         "removeComments": true,
         "lib": ["es6"],
+        "allowJs": true,
         "types": [
-            "@types/node"
+            "@types/node",
+            "@types/mocha",
+            "@types/chai",
+            "@types/chai-http"
         ],
         "outDir": "./lib"
     },
