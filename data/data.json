@@ -1,6 +1,6 @@
 {
   "ids": {
-    "User": 4,
+    "User": 3,
     "AccessToken": 1,
     "ACL": 1,
     "RoleMapping": 1,
@@ -18,8 +18,7 @@
   "models": {
     "User": {
       "1": "{\"username\":\"tally\",\"password\":\"$2a$10$b/Ok3FC3HYCbF2LlLXpk4OSsrz5EixJfkfJittHp8eEtPQvUJZiEa\",\"email\":\"tally@a.com\",\"id\":1}",
-      "2": "{\"username\":\"naveenmeher\",\"password\":\"$2a$10$tT5y2RfVUdaZvt6iVtDoUeub9WqoqLk40WF5rq4QxQFLJ4bZzzgrO\",\"email\":\"naveenmeher07@gmail.com\",\"id\":2}",
-      "3": "{\"username\":\"John@a.com\",\"password\":\"123456\",\"email\":\"John@a.com\",\"id\":3}"
+      "2": "{\"username\":\"naveenmeher\",\"password\":\"$2a$10$tT5y2RfVUdaZvt6iVtDoUeub9WqoqLk40WF5rq4QxQFLJ4bZzzgrO\",\"email\":\"naveenmeher07@gmail.com\",\"id\":2}"
     },
     "AccessToken": {},
     "ACL": {},

@@ -19,8 +19,8 @@
         "coverage:notify": "npm run coverage -- --watch --notify",
         "start": "npm run build && node server/server.js",
         "start:watch": "concurrently \"npm run build:watch\" \"node-dev server/server.js\"",
-        "preupver": "npm test",
-        "upver": "standard-version"
+        "prerelease": "npm test",
+        "release": "standard-version"
     },
     "repository": {
         "url": "git+https://github.com/tallyb/loopback-graphql.git",
