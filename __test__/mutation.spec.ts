@@ -109,7 +109,7 @@ describe.only('mutation', () => {
         id: userId,
       });
     });
-    it('should login and return an accessToken', () => {
+    it.skip('should login and return an accessToken', () => {
       const query = gql`
           mutation login{
             UserLogin(credentials:{username:"John@a.com", password:"123456"})
