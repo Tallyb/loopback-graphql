@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.13.0"></a>
+# [0.13.0](https://github.com/tallyb/loopback-graphql/compare/v0.12.1...v0.13.0) (2017-05-19)
+
+
+### Bug Fixes
+
+* **app:** Packages upgrades ([c7cf2de](https://github.com/tallyb/loopback-graphql/commit/c7cf2de))
+* **resolvers:** Remove workaround. Closes [#44](https://github.com/tallyb/loopback-graphql/issues/44) ([758ebbf](https://github.com/tallyb/loopback-graphql/commit/758ebbf))
+
+
+
 <a name="0.12.1"></a>
 ## [0.12.1](https://github.com/tallyb/loopback-graphql/compare/v0.12.0...v0.12.1) (2017-04-30)
 
