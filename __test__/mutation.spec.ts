@@ -1,11 +1,9 @@
 'use strict';
-
-import { expect, should } from 'chai';
 import { gqlRequest } from './testHelper';
 import gql from 'graphql-tag';
 // var _ = require('lodash');
 
-describe('mutation', () => {
+describe.only('mutation', () => {
 
   it('should add and Delete single entity', () => {
     let id;
@@ -32,18 +30,14 @@ describe('mutation', () => {
            }
         `;
 
-    return gqlRequest(createAuthor, {
+    return gqlRequest(createAuthor, 200, {
       obj: authorInput,
     })
       .then(res => {
-        expect(res).to.have.status(200);
         id = res.body.data.saveAuthor.id;
-        return gqlRequest(deleteAuthor, {
+        return gqlRequest(deleteAuthor, 200, {
           id: id,
         });
-      })
-      .then(res => {
-        expect(res).to.have.status(200);
       });
   });
 
@@ -72,10 +66,9 @@ describe('mutation', () => {
       },
     };
 
-    return gqlRequest(query, variables)
+    return gqlRequest(query, 200, variables)
       .then(res => {
-        expect(res).to.have.status(200);
-        expect(res.body.data.saveNote.title).to.equal(body);
+        expect(res.body.data.saveNote.title).toEqual(body);
       });
   });
 
@@ -103,7 +96,7 @@ describe('mutation', () => {
     let userId;
 
     beforeEach(() => {
-      return gqlRequest(createUser, {
+      return gqlRequest(createUser, 200, {
         obj: userInput,
       })
         .then(res => {
@@ -112,7 +105,7 @@ describe('mutation', () => {
     });
 
     afterEach(() => {
-      return gqlRequest(deleteUser, {
+      return gqlRequest(deleteUser, 200, {
         id: userId,
       });
     });
@@ -122,10 +115,9 @@ describe('mutation', () => {
             UserLogin(credentials:{username:"John@a.com", password:"123456"})
           }
         `;
-      return gqlRequest(query)
+      return gqlRequest(query, 200)
         .then(res => {
-          expect(res).to.have.status(200);
-          expect(res.body.data.UserLogin).to.have.property('id');
+          expect(res.body.data.UserLogin).toHaveProperty('id');
         });
     });
 

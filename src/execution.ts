@@ -1,5 +1,10 @@
 import * as _ from 'lodash';
-import * as utils from './utils.js';
+
+import {
+  getId,
+  connectionTypeName,
+  idToCursor,
+} from './utils';
 
 function buildSelector(model, args) {
   let selector = {
@@ -8,8 +13,8 @@ function buildSelector(model, args) {
     limit: undefined,
     order: undefined,
   };
-  const begin = utils.getId(args.after);
-  const end = utils.getId(args.before);
+  const begin = getId(args.after);
+  const end = getId(args.before);
 
   selector.skip = args.first - args.last || 0;
   selector.limit = args.last || args.first;
@@ -83,7 +88,7 @@ function findRelated(rel, obj, args, context) {
 
 function resolveConnection(model) {
   return {
-    [utils.connectionTypeName(model)]: {
+    [connectionTypeName(model)]: {
       totalCount: (obj, args, context) => {
         return obj.count;
       },
@@ -91,7 +96,7 @@ function resolveConnection(model) {
       edges: (obj, args, context) => {
         return _.map(obj.list, node => {
           return {
-            cursor: utils.idToCursor(node[model.getIdName()]),
+            cursor: idToCursor(node[model.getIdName()]),
             node: node,
           };
         });
@@ -109,8 +114,8 @@ function resolveConnection(model) {
           hasNextPage: false,
         };
         if (obj.count > 0) {
-          pageInfo.startCursor = utils.idToCursor(obj.list[0][model.getIdName()]);
-          pageInfo.endCursor = utils.idToCursor(obj.list[obj.list.length - 1][model.getIdName()]);
+          pageInfo.startCursor = idToCursor(obj.list[0][model.getIdName()]);
+          pageInfo.endCursor = idToCursor(obj.list[obj.list.length - 1][model.getIdName()]);
           pageInfo.hasNextPage = obj.list.length === obj.args.limit;
           pageInfo.hasPreviousPage = obj.list[0][model.getIdName()] !== obj.first[model.getIdName()].toString();
         }

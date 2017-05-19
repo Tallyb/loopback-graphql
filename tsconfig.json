@@ -1,29 +1,22 @@
 {
     "compilerOptions": {
         "target": "es5",
+        "lib": ["es6"],
         "module": "commonjs",
         "moduleResolution": "node",
-        "sourceMap": false,
-        "noImplicitAny": false,
-        "allowSyntheticDefaultImports": false,
-        "pretty": true,
-        "removeComments": true,
-        "lib": ["es6"],
-        "allowJs": true,
-        "types": [
-            "@types/node",
-            "@types/mocha",
-            "@types/chai",
-            "@types/chai-http"
-        ],
-        "outDir": "./lib"
+        "sourceMap": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": false,
+        "outDir": "dist",
+        "typeRoots": [
+            "node_modules/@types"
+        ]
     },
-    "include": [
-        "src/**/*.ts"
+    "files": [
+        "src/index.ts"
     ],
     "exclude": [
-        "node_modules",
-        "dist",
-        "lib"
+        "node_modules"
     ]
 }

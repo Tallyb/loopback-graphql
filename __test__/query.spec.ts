@@ -1,5 +1,4 @@
 'use strict';
-import { expect, should } from 'chai';
 import { gqlRequest } from './testHelper';
 import gql from 'graphql-tag';
 
@@ -26,11 +25,10 @@ describe('query', () => {
                 }
               }
             }`;
-      return gqlRequest(query)
+      return gqlRequest(query, 200, {})
         .then(res => {
-          expect(res).to.have.status(200);
           let data = res.body.data;
-          expect(data.allOrders.edges.length).to.equal(1);
+          expect(data.allOrders.edges.length).toEqual(1);
         });
     });
   });
@@ -57,10 +55,9 @@ describe('query', () => {
           },
         },
       };
-      return gqlRequest(query, variables)
+      return gqlRequest(query, 200, variables)
         .then(res => {
-          expect(res).to.have.status(200);
-          expect(res.body.data.allUsers.totalCount).to.equal(2);
+          expect(res.body.data.allUsers.totalCount).toEqual(2);
         });
 
     });
@@ -96,10 +93,9 @@ describe('query', () => {
                  }
                }
             `;
-      return gqlRequest(query)
+      return gqlRequest(query, 200, {})
         .then(res => {
-          expect(res).to.have.status(200);
-          expect(res.body.data.allCustomers.edges.length).to.equal(2);
+          expect(res.body.data.allCustomers.edges.length).toEqual(2);
         });
     });
   });

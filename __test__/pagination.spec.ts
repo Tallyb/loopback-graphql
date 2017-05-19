@@ -1,4 +1,4 @@
-import { expect, should } from 'chai';
+'use strict';
 import { gqlRequest } from './testHelper';
 import gql from 'graphql-tag';
 // var _ = require('lodash');
@@ -27,11 +27,10 @@ describe('Pagination', () => {
                     }
 
         `;
-    return gqlRequest(query)
+    return gqlRequest(query, 200)
       .then(res => {
-        expect(res).to.have.status(200);
         let data: any = res.body.data;
-        expect(data.allNotes.edges.length).to.be.above(0);
+        expect(data.allNotes.edges.length).toBeGreaterThan(0);
       });
   });
 
@@ -53,13 +52,12 @@ describe('Pagination', () => {
                 }
             }
         }`;
-    return gqlRequest(query)
+    return gqlRequest(query, 200)
       .then(res => {
-        expect(res).to.have.status(200);
         let data: any = res.body.data;
-        expect(data.allNotes.edges.length).to.be.above(0);
-        expect(data.allNotes.edges[0].node.id).to.be.above(4);
-        expect(data.allNotes.pageInfo.hasPreviousPage).to.equal(true);
+        expect(data.allNotes.edges.length).toBeGreaterThan(0);
+        expect(data.allNotes.edges[0].node.id).toBeGreaterThan(4);
+        expect(data.allNotes.pageInfo.hasPreviousPage).toEqual(true);
       });
   });
 
@@ -88,12 +86,11 @@ describe('Pagination', () => {
                 }
                 }
             `;
-    return gqlRequest(query)
+    return gqlRequest(query, 200)
       .then(res => {
-        expect(res).to.have.status(200);
         let data: any = res.body.data;
-        expect(data.allAuthors.edges[0].node.notes.Notes.length).to.be.above(0);
-        expect(data.allAuthors.edges[0].node.notes.totalCount).to.be.above(0);
+        expect(data.allAuthors.edges[0].node.notes.Notes.length).toBeGreaterThan(0);
+        expect(data.allAuthors.edges[0].node.notes.totalCount).toBeGreaterThan(0);
         //data.allAuthors.edges[0].cursor.should.not.to.be.empty();
       });
   });

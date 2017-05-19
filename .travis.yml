@@ -1,16 +1,31 @@
 language: node_js
 node_js:
+  - "4"
   - "6"
-install:
-  - npm install -g npm
+  - "7"
+
+cache:
+  directories:
+    - ${HOME}/.npm
+
+before_install:
+  - npm config set spin=false
+  - npm install -g npm@4
   - npm install -g coveralls
+
+install:
   - npm install
 
 script:
   - npm test
-  - npm run lint
-#  - npm run coverage
-#  - coveralls < ./coverage/lcov.info || true # ignore coveralls error
+  - npm run coverage
+
+after_script:
+  - coveralls < ./coverage/lcov.info || true # if coveralls doesn't have it covered
+
+branches:
+    only:
+      - master
 
 # Allow Travis tests to run in containers.
 sudo: false
