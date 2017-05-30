@@ -83,7 +83,7 @@
     "ts-jest": "^20.0.3",
     "tslint": "^5.2.0",
     "tslint-loader": "^3.5.3",
-    "typescript": "2.3.2",
+    "typescript": "2.3.4",
     "webpack": "^2.5.1",
     "webpack-node-externals": "^1.6.0",
     "nsp": "^2.6.3",
