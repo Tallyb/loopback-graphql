@@ -17,8 +17,8 @@ const scalarResolvers = {
 function RelationResolver(model) {
   let resolver = {};
   _.forEach(utils.sharedRelations(model), rel => {
-    resolver[rel.name] = (obj, args, context) => {
-      return execution.findRelated(rel, obj, args, context);
+    resolver[rel.name] = (obj, args) => {
+      return execution.findRelated(rel, obj, args);
     };
   });
 
@@ -30,18 +30,19 @@ function RelationResolver(model) {
 function rootResolver(model) {
   return {
     Query: {
-      [`${utils.pluralModelName(model)}`]: (root, args, context) => {
-        return execution.findAll(model, root, args, context);
+      [`${utils.pluralModelName(model)}`]: (root, args) => {
+        return execution.findAll(model, root, args);
       },
-      [`${utils.singularModelName(model)}`]: (obj, args, context) => {
-        return execution.findOne(model, obj, args, context);
+      [`${utils.singularModelName(model)}`]: (obj, args) => {
+        return execution.findOne(model, obj, args);
       },
     },
     Mutation: {
-      [`save${utils.singularModelName(model)}`]: (context, args) => {
+      [`save${utils.singularModelName(model)}`]: (_root, args) => {
+        console.log('ARGS', args);
         return model.upsert(args.obj);
       },
-      [`delete${utils.singularModelName(model)}`]: (context, args) => {
+      [`delete${utils.singularModelName(model)}`]: (_root, args) => {
         return model.findById(args.id)
           .then(instance => {
             return instance ? instance.destroy() : null;
@@ -54,11 +55,11 @@ function rootResolver(model) {
 function connectionResolver(model: any) {
   return {
     [utils.connectionTypeName(model)]: {
-      totalCount: (obj, args, context) => {
+      totalCount: (obj) => {
         return obj.count;
       },
 
-      edges: (obj, args, context) => {
+      edges: (obj) => {
         return _.map(obj.list, node => {
           return {
             cursor: utils.idToCursor(node[model.getIdName()]),
@@ -67,11 +68,11 @@ function connectionResolver(model: any) {
         });
       },
 
-      [model.pluralModelName]: (obj, args, context) => {
+      [model.pluralModelName]: (obj) => {
         return obj.list;
       },
 
-      pageInfo: (obj, args, context) => {
+      pageInfo: (obj) => {
         let pageInfo = {
           startCursor: null,
           endCursor: null,
@@ -102,7 +103,7 @@ function remoteResolver(model) {
             acceptingParams.push(param.arg);
           }
         });
-        mutation[`${utils.methodName(method, model)}`] = (context, args) => {
+        mutation[`${utils.methodName(method, model)}`] = (args) => {
           let params = [];
           _.each(method.accepts, (el, i) => {
             params[i] = args[el.arg];

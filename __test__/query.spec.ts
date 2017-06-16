@@ -27,6 +27,7 @@ describe('query', () => {
             }`;
       return gqlRequest(query, 200, {})
         .then(res => {
+          console.log('RES', res.body.data);
           let data = res.body.data;
           expect(data.allOrders.edges.length).toEqual(1);
         });

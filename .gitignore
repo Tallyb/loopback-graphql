@@ -1,20 +1,32 @@
-*.csv
-*.dat
-*.iml
+# Logs
+logs
 *.log
-*.out
-*.pid
-*.seed
-*.sublime-*
-*.swo
-*.swp
-*.tgz
-*.xml
-.vscoode
-.DS_Store
-.idea
+npm-debug.log*
+
+# Dependencies
+node_modules/
+
+# Coverage
 coverage
-node_modules
-npm-debug.log
-out
+
+# Transpiled files
+build/
+
+# VS Code
+#.vscode
+#!.vscode/tasks.js
+
+# JetBrains IDEs
+.idea/
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Misc
+.DS_Store
 data
+
+package-lock.json

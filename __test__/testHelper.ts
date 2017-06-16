@@ -1,10 +1,11 @@
 'use strict';
 
-import * as request from 'supertest';
-import * as server from '../server/server.js';
+import request from 'supertest';
+import app from '../server/server.js';
 
 export function gqlRequest(query: any, status: number, variables?: object) {
-  return request(server)
+
+  return request(app)
     .post('/graphql')
     .send({
       query,

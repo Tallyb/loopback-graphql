@@ -3,7 +3,7 @@ import { gqlRequest } from './testHelper';
 import gql from 'graphql-tag';
 // var _ = require('lodash');
 
-describe.only('mutation', () => {
+describe('mutation', () => {
 
   it('should add and Delete single entity', () => {
     let id;
@@ -68,6 +68,7 @@ describe.only('mutation', () => {
 
     return gqlRequest(query, 200, variables)
       .then(res => {
+        console.log('RES SUB', res.body);
         expect(res.body.data.saveNote.title).toEqual(body);
       });
   });

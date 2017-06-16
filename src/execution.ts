@@ -30,30 +30,30 @@ function buildSelector(model, args) {
   return selector;
 }
 
-function findOne(model, obj, args, context) {
+function findOne(model, obj, args /*, context*/) {
   let id = obj ? obj[model.getIdName()] : args.id;
   return model.findById(id);
 }
 
 function getCount(model, obj, args, context) {
-  return model.count(args.where);
+  return model.count(args.where, obj, context);
 }
 
 function getFirst(model, obj, args) {
   return model.findOne({
     order: model.getIdName() + (args.before ? ' DESC' : ' ASC'),
     where: args.where,
-  })
+  }, obj)
     .then(res => {
       return res ? res.__data : {};
     });
 }
 
-function getList(model, obj, args) {
+function getList(model, args) {
   return model.find(buildSelector(model, args));
 }
 
-function findAll(model: any, obj: any, args: any, context: any) {
+function findAll(model: any, obj: any, args: any) {
   const response = {
     args: args,
     count: undefined,
@@ -67,7 +67,7 @@ function findAll(model: any, obj: any, args: any, context: any) {
     })
     .then(first => {
       response.first = first;
-      return getList(model, obj, args);
+      return getList(model, args);
     })
     .then(list => {
       response.list = list;
@@ -75,25 +75,25 @@ function findAll(model: any, obj: any, args: any, context: any) {
     });
 }
 
-function findRelated(rel, obj, args, context) {
+function findRelated(rel, obj, args) {
   if (_.isArray(obj[rel.keyFrom])) {
     return [];
   }
   args.where = {
     [rel.keyTo]: obj[rel.keyFrom],
   };
-  return findAll(rel.modelTo, obj, args, context);
+  return findAll(rel.modelTo, obj, args);
 
 }
 
 function resolveConnection(model) {
   return {
     [connectionTypeName(model)]: {
-      totalCount: (obj, args, context) => {
+      totalCount: (obj) => {
         return obj.count;
       },
 
-      edges: (obj, args, context) => {
+      edges: (obj) => {
         return _.map(obj.list, node => {
           return {
             cursor: idToCursor(node[model.getIdName()]),
@@ -102,11 +102,11 @@ function resolveConnection(model) {
         });
       },
 
-      [model.pluralModelName]: (obj, args, context) => {
+      [model.pluralModelName]: (obj) => {
         return obj.list;
       },
 
-      pageInfo: (obj, args, context) => {
+      pageInfo: (obj) => {
         let pageInfo = {
           startCursor: null,
           endCursor: null,

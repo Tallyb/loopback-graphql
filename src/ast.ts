@@ -9,7 +9,7 @@ import {
   idToCursor,
 } from './utils';
 import { findRelated, findAll, findOne, resolveConnection } from './execution';
-import { IProperty, ITypesHash } from './interfaces';
+import { ITypesHash } from './interfaces';
 
 /*** Loopback Types - GraphQL types
         any - JSON
@@ -133,8 +133,8 @@ function mapRelation(rel: any, modelName: string, relName: string) {
     embed: rel.embed,
     gqlType: connectionTypeName(rel.modelTo),
     args: PAGINATION,
-    resolver: (obj, args, context) => {
-      return findRelated(rel, obj, args, context);
+    resolver: (obj, args) => {
+      return findRelated(rel, obj, args);
     },
   };
 }
@@ -215,8 +215,8 @@ function mapRoot(model) {
     args: IDPARAMS,
     root: true,
     gqlType: singularModelName(model),
-    resolver: (obj, args, context) => {
-      findOne(model, obj, args, context);
+    resolver: (obj, args /*, context*/) => {
+      findOne(model, obj, args);
     },
   };
 
@@ -225,8 +225,8 @@ function mapRoot(model) {
     root: true,
     args: PAGINATION,
     gqlType: connectionTypeName(model),
-    resolver: (obj, args, context) => {
-      findAll(model, obj, args, context);
+    resolver: (obj, args) => {
+      findAll(model, obj, args);
     },
   };
 
@@ -234,7 +234,7 @@ function mapRoot(model) {
     relation: true,
     args: `obj: ${singularModelName(model)}Input!`,
     gqlType: singularModelName(model),
-    resolver: (context, args) => model.upsert(args.obj),
+    resolver: (context, args) => model.upsert(args.obj, context),
   };
 
   types.Mutation.fields[`delete${singularModelName(model)}`] = {
@@ -242,7 +242,7 @@ function mapRoot(model) {
     args: IDPARAMS,
     gqlType: ` ${singularModelName(model)}`,
     resolver: (context, args) => {
-      return model.findById(args.id)
+      return model.findById(args.id, context)
         .then(instance => instance.destroy());
     },
   };
@@ -277,7 +277,7 @@ function mapConnection(model) {
       edges: {
         list: true,
         gqlType: edgeTypeName(model),
-        resolver: (obj, args, context) => {
+        resolver: (obj /*, args, context*/) => {
           return _.map(obj.list, node => {
             return {
               cursor: idToCursor(node[model.getIdName()]),
@@ -289,19 +289,19 @@ function mapConnection(model) {
       totalCount: {
         gqlType: 'Int',
         scalar: true,
-        resolver: (obj, args, context) => {
+        resolver: (obj /*, args, context*/) => {
           return obj.count;
         },
       },
       [model.pluralModelName]: {
         gqlType: singularModelName(model),
         list: true,
-        resolver: (obj, args, context) => {
+        resolver: (obj /*, args, context*/) => {
           return obj.list;
         },
       },
     },
-    resolver: (obj, args, context) => {
+    resolver: (/*obj, args, context*/) => {
       return resolveConnection(model);
     },
   };

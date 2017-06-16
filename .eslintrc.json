@@ -22,7 +22,7 @@
         "nodeca"
     ],
     "rules": {
-        "comma-dangle": [2, "never"],
+        "comma-dangle": [1, "ignore"],
         "camelcase": 0,
         "complexity": [0, 11],
         "consistent-return": 2,
