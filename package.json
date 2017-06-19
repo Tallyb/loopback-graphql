@@ -55,7 +55,7 @@
     "@types/graphql": "^0.9.1",
     "@types/jest": "^19.2.4",
     "@types/lodash": "^4.14.64",
-    "@types/node": "^7.0.23",
+    "@types/node": "^8.0.0",
     "@types/request": "0.0.43",
     "@types/request-promise": "^4.1.33",
     "@types/uuid": "^2.0.29",
