@@ -3,9 +3,9 @@
     "compilerOptions": {
         "sourceMap": false,
         "declaration": false,
-        "rootDir": ".",
         "outDir": "build",
-        "removeComments": true
+        "removeComments": true,
+        "watch": false
     },
     "include": [
         "src/**/*"

@@ -1,3 +1,2 @@
-import {boot} from './boot';
-
+import { boot } from './boot';
 module.exports = boot;

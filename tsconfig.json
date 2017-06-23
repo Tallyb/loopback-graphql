@@ -15,7 +15,9 @@
         "emitDecoratorMetadata": true,
         "declaration": false,
         "outDir": "build",
-        "sourceMap": true
+        "sourceMap": true,
+        "inlineSourceMap": true,
+        "watch": true
     },
     "include": [
         "src/**/*",

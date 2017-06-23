@@ -2,5 +2,5 @@
     "loopback-component-explorer": {
         "mountPath": "/explorer"
     },
-    "../build/src/index.js": {}
+    "../build/index.js": {}
 }

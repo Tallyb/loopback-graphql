@@ -17,7 +17,8 @@
             "env": {
                 "NODE_ENV": "development"
             },
-            "console": "internalConsole"
+            "console": "internalConsole",
+            "sourceMaps": true
         },
         {
             "name": "Launch",
@@ -28,7 +29,7 @@
             "args": [],
             "cwd": "${workspaceRoot}",
             "preLaunchTask": null,
-            "outFiles": ["dist"],
+            "outFiles": ["build"],
             "runtimeExecutable": null,
             "runtimeArgs": [
                 "--nolazy"
