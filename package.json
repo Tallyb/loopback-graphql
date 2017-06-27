@@ -59,7 +59,7 @@
         "@types/jest": "^20.0.2",
         "@types/lodash": "^4.14.66",
         "@types/node": "^8.0.2",
-        "@types/request": "0.0.44",
+        "@types/request": "0.0.45",
         "@types/request-promise": "^4.1.33",
         "@types/supertest": "^2.0.1",
         "@types/uuid": "^3.0.0",
