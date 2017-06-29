@@ -49,7 +49,7 @@
         "graphql": "^0.10.1",
         "graphql-date": "^1.0.3",
         "graphql-geojson": "^1.0.0",
-        "graphql-server-express": "^0.9.0",
+        "graphql-server-express": "^1.0.0",
         "graphql-tools": "^1.0.0",
         "graphql-type-json": "^0.1.4",
         "lodash": "^4.17.4"
