@@ -9,9 +9,9 @@
     "types": "build/index",
     "scripts": {
         "clean": "rimraf coverage build tmp",
-        "build": "tsc -p tsconfig.release.json -",
+        "build": "tsc -p tsconfig.release.json",
         "lint": "tslint -t stylish '{src,__tests__}/**/*.{ts,tsx}'",
-        "pretest": "npm run lint  && tsc",
+        "pretest": "npm run lint  && npm run build",
         "test": "npm run test:only",
         "test:only": "npm run copydata && jest --coverage",
         "test:watch": "jest --watch",

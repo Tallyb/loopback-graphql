@@ -6,7 +6,7 @@
     "RoleMapping": 1,
     "Role": 1,
     "Note": 7,
-    "Author": 5,
+    "Author": 4,
     "Reader": 2,
     "Book": 2,
     "Customer": 8,
@@ -34,8 +34,7 @@
     },
     "Author": {
       "1": "{\"first_name\":\"Jane\",\"last_name\":\"Austin\",\"birth_date\":\"1883-10-15T00:00:00.000Z\",\"id\":8,\"friendIds\":[5,7]}",
-      "3": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-06-16T07:29:28.929Z\",\"friendIds\":[],\"id\":3}",
-      "4": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-06-23T19:24:29.142Z\",\"friendIds\":[],\"id\":4}"
+      "3": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-06-26T16:52:11.626Z\",\"friendIds\":[],\"id\":3}"
     },
     "Reader": {
       "1": "{\"name\":\"Reader 1\",\"id\":1}"

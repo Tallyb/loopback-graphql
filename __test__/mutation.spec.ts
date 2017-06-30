@@ -68,7 +68,6 @@ describe('mutation', () => {
 
     return gqlRequest(query, 200, variables)
       .then(res => {
-        console.log('RES SUB', res.body);
         expect(res.body.data.saveNote.title).toEqual(body);
       });
   });

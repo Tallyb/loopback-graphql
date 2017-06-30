@@ -16,7 +16,6 @@
         "declaration": false,
         "outDir": "build",
         "sourceMap": true,
-        "inlineSourceMap": true,
         "watch": true
     },
     "include": [
