@@ -55,7 +55,7 @@
         "lodash": "^4.17.4"
     },
     "devDependencies": {
-        "@types/graphql": "^0.9.1",
+        "@types/graphql": "^0.10.0",
         "@types/jest": "^20.0.2",
         "@types/lodash": "^4.14.66",
         "@types/node": "^8.0.2",
