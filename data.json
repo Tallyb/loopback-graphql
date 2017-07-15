@@ -1,0 +1,41 @@
+{
+  "ids": {
+    "User": 1,
+    "AccessToken": 1,
+    "ACL": 1,
+    "RoleMapping": 1,
+    "Role": 1,
+    "Customer": 1,
+    "Account": 1,
+    "Author": 5,
+    "Reader": 1,
+    "Book": 1,
+    "Order": 1,
+    "Note": 1,
+    "Googlemaps": 1,
+    "products": 1,
+    "catalogs": 1
+  },
+  "models": {
+    "User": {},
+    "AccessToken": {},
+    "ACL": {},
+    "RoleMapping": {},
+    "Role": {},
+    "Customer": {},
+    "Account": {},
+    "Author": {
+      "1": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-06-30T07:47:24.747Z\",\"friendIds\":[],\"id\":1}",
+      "2": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-06-30T07:49:23.893Z\",\"friendIds\":[],\"id\":2}",
+      "3": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-06-30T09:43:37.721Z\",\"friendIds\":[],\"id\":3}",
+      "4": "{\"first_name\":\"Virginia\",\"last_name\":\"Wolf\",\"birth_date\":\"2017-07-08T05:38:45.056Z\",\"friendIds\":[],\"id\":4}"
+    },
+    "Reader": {},
+    "Book": {},
+    "Order": {},
+    "Note": {},
+    "Googlemaps": {},
+    "products": {},
+    "catalogs": {}
+  }
+}
