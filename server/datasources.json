@@ -6,6 +6,6 @@
     },
     "transient": {
         "name": "transient",
-        "connector": "transient"
+        "connector": "memory"
     }
 }

@@ -50,7 +50,7 @@
         "graphql-date": "^1.0.3",
         "graphql-geojson": "^1.0.0",
         "graphql-server-express": "^1.0.0",
-        "graphql-tools": "^1.0.0",
+        "graphql-tools": "^1.2.3",
         "graphql-type-json": "^0.1.4",
         "lodash": "^4.17.4"
     },
@@ -74,7 +74,7 @@
         "graphql-tag": "^2.3.0",
         "helmet": "^3.6.1",
         "jest": "^21.0.0",
-        "jest-cli": "^20.1.0",
+        "jest-cli": "^21.1.0",
         "loopback": "^3.8.0",
         "loopback-boot": "^2.24.1",
         "loopback-component-explorer": "^5.0.0",
@@ -105,10 +105,8 @@
         ],
         "globals": {
             "__DEV__": true,
-            "__TS_CONFIG__": {
-                "allowSyntheticDefaultImports": true,
-                "moduleResolution": "node",
-                "inlineSourceMap": true
+            "ts-jest": {
+                "tsConfigFile": "tsconfig.test.json"
             }
         }
     }

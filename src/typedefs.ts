@@ -7,8 +7,8 @@ const scalarTypes = `
         scalar GeoPoint
         `;
 
-function args(args: string): string {
-  return args ? `(${args})` : '';
+function args(params: string): string {
+  return params ? `(${args})` : '';
 }
 
 function generateInputField(field: IField, name: string): string {
@@ -24,8 +24,8 @@ function generateOutputField(field: IField, name: string): string {
 export function generateTypeDefs(types: ITypesHash) {
   const categories = {
     TYPE: (type: ISchemaType, name: string) => {
-      let output = _.reduce(type.fields, (result: string, field: IField, fieldName: string): string => {
-        return result + generateOutputField(field, fieldName) + ' \n ';
+      let output = _.reduce(type.fields, (res: string, field: IField, fieldName: string): string => {
+        return res + generateOutputField(field, fieldName) + ' \n ';
       }, '');
 
       let result = `
