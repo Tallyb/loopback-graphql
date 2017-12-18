@@ -74,7 +74,7 @@
         "graphql-tag": "^2.3.0",
         "helmet": "^3.6.1",
         "jest": "^21.0.0",
-        "jest-cli": "^21.1.0",
+        "jest-cli": "^22.0.0",
         "loopback": "^3.8.0",
         "loopback-boot": "^2.24.1",
         "loopback-component-explorer": "^5.0.0",
