@@ -1,4 +1,10 @@
 
+# Deprecation Warning: 
+I have been very bad at maintaining this repo, and do not see how I come back to it in the near future.
+I have seen that this repo is a fork that moved forward: https://github.com/yahoohung/loopback-graphql-server/. 
+If anyone is willing to take maintaining this repo on themselves - you are welcome. 
+Thanks for all the feedback... 
+
 ### Status
 [![Build Status](https://travis-ci.org/Tallyb/loopback-graphql.svg?branch=master)](https://travis-ci.org/Tallyb/loopback-graphql)
 
