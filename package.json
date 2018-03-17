@@ -51,7 +51,7 @@
         "graphql-geojson": "^1.0.0",
         "graphql-server-express": "^1.0.0",
         "graphql-tools": "^2.0.0",
-        "graphql-type-json": "^0.1.4",
+        "graphql-type-json": "^0.2.0",
         "lodash": "^4.17.4"
     },
     "devDependencies": {
