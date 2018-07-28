@@ -63,7 +63,7 @@
         "@types/request-promise": "^4.1.33",
         "@types/supertest": "^2.0.1",
         "@types/uuid": "^3.0.0",
-        "awesome-typescript-loader": "^4.0.0",
+        "awesome-typescript-loader": "^5.0.0",
         "compression": "^1.6.2",
         "concurrently": "^3.4.0",
         "cors": "^2.8.3",
