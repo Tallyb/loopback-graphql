@@ -85,7 +85,7 @@
         "request": "^2.81.0",
         "rimraf": "^2.6.1",
         "serve-favicon": "^2.4.3",
-        "standard-version": "^4.2.0",
+        "standard-version": "^5.0.0",
         "strong-error-handler": "^3.0.0",
         "supertest": "^3.0.0",
         "ts-jest": "^23.1.0",
