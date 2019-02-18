@@ -88,7 +88,7 @@
         "standard-version": "^4.2.0",
         "strong-error-handler": "^3.0.0",
         "supertest": "^3.0.0",
-        "ts-jest": "^23.1.0",
+        "ts-jest": "^24.0.0",
         "tslint": "^5.4.3",
         "typescript": "^2.4.0"
     },
