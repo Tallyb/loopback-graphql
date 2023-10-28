@@ -40,7 +40,7 @@ Graphiql is available on `graphiqlPath` path. (Default: `/graphiql`);
 
 ## Usage
 
-Access the Graphiql interface to view your GraphQL model onthe Docs section. 
+Access the Graphiql interface to view your GraphQL model on the Docs section. 
 Build the GraphQL queries and use them in your application.
 
 geoPoint objects are supported as follow: 
